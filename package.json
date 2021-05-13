@@ -1,0 +1,78 @@
+{
+  "name": "RemoteLab",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "1.11.0",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-firebase/app": "11.5.0",
+    "@react-native-firebase/messaging": "11.5.0",
+    "@react-navigation/native": "^5.9.4",
+    "@sentry/react-native": "^2.4.2",
+    "@types/jest": "26.0.15",
+    "easing-functions": "1.0.1",
+    "eslint-import-resolver-webpack": "0.12.1",
+    "i18n-js": "3.8.0",
+    "lodash": "4.17.21",
+    "mockdate": "3.0.2",
+    "moment": "2.29.1",
+    "patch-package": "6.2.2",
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-keychain": "3.1.3",
+    "react-native-reanimated": "^2.1.0",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.2.0",
+    "redux": "4.1.0",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@testing-library/jest-native": "3.4.3",
+    "@testing-library/react-native": "7.0.2",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "^25.1.0",
+    "babel-preset-react-native": "5.0.0",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
+    "enzyme-to-json": "3.5.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.1.0",
+    "eslint-import-resolver-react-native": "0.2.0",
+    "eslint-plugin-flowtype": "5.1.3",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "4.1.2",
+    "fetch-mock": "9.10.1",
+    "jest": "^25.1.0",
+    "jest-fetch-mock": "3.0.3",
+    "jetifier": "1.6.4",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-dom": "16.9.0",
+    "react-test-renderer": "16.13.1",
+    "redux-devtools": "3.4.1",
+    "redux-mock-store": "1.5.4"
+  },
+  "jest": {
+    "preset": "react-native",
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation/.*))"
+    ]
+  }
+}
