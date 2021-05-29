@@ -1,0 +1,17 @@
+{
+  "prettier.eslintIntegration": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "flow.enabled": true,
+  "javascript.validate.enable": false,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow"
+}

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "120024944623",
+    "project_id": "remotelabudemm",
+    "storage_bucket": "remotelabudemm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120024944623:android:e8fc280275332af9ddb01a",
+        "android_client_info": {
+          "package_name": "com.remotelabudemm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120024944623-n2uvqti82rd1mb41arqco9rht7rlrkgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.remotelabudemm",
+            "certificate_hash": "13e1e157392fadebe8389807b1710e9e9095b854"
+          }
+        },
+        {
+          "client_id": "120024944623-q0eeomhgge93hjf5iv60di21q1d2ppff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnWUvdA356hcBM4rm7FChMJwiLUu4OQo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120024944623-q0eeomhgge93hjf5iv60di21q1d2ppff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
