@@ -1,6 +1,0 @@
-module Pods_RemoteLab_RemoteLabTests {
-  umbrella header "Pods-RemoteLab-RemoteLabTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

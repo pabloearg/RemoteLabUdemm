@@ -44,27 +44,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FirebaseInstanceID.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FirebaseMessaging.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-Boost-iOSX.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Flipper-DoubleConversion.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Flipper-Fmt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -99,11 +84,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Folly.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GoogleDataTransport.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -119,27 +99,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RemoteLab-RemoteLabTests.xcscheme</key>
+		<key>Pods-RemoteLabUdemm-RemoteLabUdemmTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RemoteLab-tvOS.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RemoteLab-tvOSTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RemoteLab.xcscheme</key>
+		<key>Pods-RemoteLabUdemm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>PromisesObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RCT-Folly.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -280,6 +255,16 @@
 			<false/>
 		</dict>
 		<key>React-jsinspector.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-perflogger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-runtimeexecutor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

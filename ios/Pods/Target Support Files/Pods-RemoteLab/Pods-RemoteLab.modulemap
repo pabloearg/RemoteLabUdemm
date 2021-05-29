@@ -1,6 +1,0 @@
-module Pods_RemoteLab {
-  umbrella header "Pods-RemoteLab-umbrella.h"
-
-  export *
-  module * { export * }
-}
