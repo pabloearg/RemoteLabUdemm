@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextHeadings Rendering should match to snapshot 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "fontFamily": "avenir",
+      },
+      Object {
+        "fontSize": 32,
+        "fontWeight": "900",
+        "lineHeight": 44,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  NEXT
+</Text>
+`;

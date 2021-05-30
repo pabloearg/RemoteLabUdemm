@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Rendering should match to snapshot - Primary: Primary button snapshot 1`] = `
+<ForwardRef
+  backgroundColor="#F3A802"
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#F3A802",
+      },
+      Object {
+        "alignItems": "center",
+        "borderRadius": 5,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextStrong
+    style={
+      Array [
+        Object {
+          "fontSize": 12,
+        },
+        undefined,
+      ]
+    }
+  >
+    Continue
+  </TextStrong>
+</ForwardRef>
+`;
+
+exports[`Button Rendering should match to snapshot - Secondary: Secondary button snapshot 1`] = `
+<ForwardRef
+  onPress={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": undefined,
+      },
+      Object {
+        "alignItems": "center",
+        "borderRadius": 5,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextStrong
+    style={
+      Array [
+        Object {
+          "fontSize": 12,
+        },
+        undefined,
+      ]
+    }
+  >
+    <TextStrong
+      style={Object {}}
+    >
+      Probando
+    </TextStrong>
+  </TextStrong>
+</ForwardRef>
+`;
