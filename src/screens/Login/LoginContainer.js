@@ -1,14 +1,20 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
-  StyleSheet, Text, View, TouchableHighlight,
+  StyleSheet, Text, View, TouchableHighlight, Alert,
 } from 'react-native';
+import { useShowBackAlert } from '../../hooks';
 
-const LoginContainer = () => (
-  <View style={{ backgroundColor: 'red', flex: 1 }}>
-    <Text />
-  </View>
-);
+const LoginContainer = ({ navigation }) => {
+  const hasUnsavedChanges = Boolean(true);
+  useShowBackAlert(navigation, hasUnsavedChanges);
+
+  return (
+    <View style={{ backgroundColor: 'red', flex: 1 }}>
+      <Text />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({});
 

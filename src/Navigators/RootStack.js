@@ -7,6 +7,7 @@ import ScreensNames from '../screens/ScreensNames';
 import { BLUE_HEADER, WHITE } from '../styles/colors';
 import { colorHeaderStyle } from '../styles/header';
 import { getString, translateEnum } from '../static/locale';
+import Home from '../screens/Home/Home';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,12 @@ const RootStack = () => {
   };
   return (
     <Stack.Navigator screenOptions={navigationOptions}>
+      <Stack.Screen
+        name={Screens[ScreensNames.HOME].name}
+        component={Home}
+        options={Screens[ScreensNames.HOME].options}
+      />
+
       <Stack.Screen
         name={Screens[ScreensNames.SPLASH].name}
         component={Screens[ScreensNames.SPLASH].component}
