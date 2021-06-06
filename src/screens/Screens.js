@@ -32,10 +32,8 @@ const Screens: {
     options: {
       title: getString(translateEnum.INTRO_APPOINTMENT_TITLE),
       ...colorHeaderStyle,
-      headerRight: () => (
-        <AddIcon
-          onPress={() => alert('A Agregar un turno!')}
-        />
+      headerRight: (props) => (
+        <AddIcon />
       ),
     }
   },
