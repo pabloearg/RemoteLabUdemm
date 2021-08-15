@@ -20,3 +20,4 @@ export const WARNING = '#ffc107';
 export const DANGER = '#dc3545';
 export const LIGHT = '#f8f9fa';
 export const DARK = '#343a40';
+export const LIGHT_GRAY = '#D2D2D2';

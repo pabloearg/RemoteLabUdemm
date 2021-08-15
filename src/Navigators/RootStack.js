@@ -36,6 +36,16 @@ const RootStack = () => {
         component={Screens[ScreensNames.LOGIN].component}
         options={{ title: 'Login', headerTitle: 'Login', ...colorHeaderStyle }}
       />
+      <Stack.Screen
+        name={Screens[ScreensNames.SELECT_EXPERIMENT].name}
+        component={Screens[ScreensNames.SELECT_EXPERIMENT].component}
+        options={Screens[ScreensNames.SELECT_EXPERIMENT].options}
+      />
+      <Stack.Screen
+        name={Screens[ScreensNames.SELECT_DATE].name}
+        component={Screens[ScreensNames.SELECT_DATE].component}
+        options={Screens[ScreensNames.SELECT_DATE].options}
+      />
     </Stack.Navigator>
   );
 };

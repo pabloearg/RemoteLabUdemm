@@ -25,6 +25,7 @@ module.exports = {
     'no-bitwise': 'off',
     'no-plusplus': 'off',
     'no-mixed-operators': 'off',
+    'import/prefer-default-export': 'off',
     eqeqeq: 'off',
     'no-useless-constructor': 'off',
     'prefer-destructuring': 'off',

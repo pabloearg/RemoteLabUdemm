@@ -9,7 +9,7 @@ import ScreensNames from '../../screens/ScreensNames';
 export default function AddIcon({ onPress }) {
   const { navigate } = useNavigation();
   const goToLogin = () => {
-    navigate(ScreensNames.LOGIN);
+    navigate(ScreensNames.SELECT_EXPERIMENT);
   };
   return (
     <TouchableOpacity onPress={goToLogin} style={{ paddingHorizontal: 15, }}>

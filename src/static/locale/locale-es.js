@@ -9,4 +9,6 @@ export default {
   INTRO_APPOINTMENT_LAST_DESCRIPTION: 'No has sacado ningun turno en los ultimos meses',
   INTRO_APPOINTMENT_CURRENT_TITLE: 'Todavía no tenés turnos',
   INTRO_APPOINTMENT_CURRENT_DESCRIPTION: 'Podes sacar un turno para realizar tu experimento',
+  SELECT_EXPERIMENT_TITLE: 'Nuevo Turno',
+  SELECT_DATE_TITLE: 'Elegir Turno',
 };
