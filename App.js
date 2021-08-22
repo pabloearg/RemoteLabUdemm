@@ -7,9 +7,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Amplify from 'aws-amplify';
 import PushNotification from '@aws-amplify/pushnotification';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Provider } from 'react-redux';
 import RootStack from './src/Navigators/RootStack';
 import { navigatorRef } from './src/Navigators/navigator';
 import config from './src/aws-exports';
+import createStore from './src/store/configureStore';
 
 Amplify.configure({ ...config, });
 // get the notification data when notification is received
@@ -41,12 +43,14 @@ const App = () => {
     NativeModules.RNPushNotification.getToken((token) => console.log(token));
   });
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle="light-content" />
-      <NavigationContainer ref={navigatorRef}>
-        <RootStack />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <Provider store={createStore()}>
+      <SafeAreaProvider>
+        <StatusBar barStyle="light-content" />
+        <NavigationContainer ref={navigatorRef}>
+          <RootStack />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
   );
 };
 
