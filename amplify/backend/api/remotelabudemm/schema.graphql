@@ -1,0 +1,203 @@
+type Task @model @auth(rules: [{allow: groups, groups: ["Managers"], queries: null, mutations: [create, update, delete]}, {allow: groups, groups: ["Employees"], queries: [get, list], mutations: null}]) {
+  id: ID!
+  title: String!
+  description: String
+  status: String
+}
+
+type PrivateNote @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  content: String!
+}
+
+input CreateAPPOINTMENTInput {
+  id: Int!
+  day: AWSDate
+  hour: AWSTime
+  idExperiment: Int
+  idStudent: Int
+  status: String
+}
+
+type APPOINTMENT {
+  id: Int!
+  day: AWSDate
+  hour: AWSTime
+  idExperiment: Int
+  idStudent: Int
+  status: String
+}
+
+input UpdateAPPOINTMENTInput {
+  id: Int!
+  day: AWSDate
+  hour: AWSTime
+  idExperiment: Int
+  idStudent: Int
+  status: String
+}
+
+input CreateCLASSInput {
+  id: Int!
+  name: String!
+  idTeacher: Int!
+  period: String
+  shift: String
+}
+
+type CLASS {
+  id: Int!
+  name: String!
+  idTeacher: Int!
+  period: String
+  shift: String
+}
+
+input UpdateCLASSInput {
+  id: Int!
+  name: String
+  idTeacher: Int
+  period: String
+  shift: String
+}
+
+input CreateEXPERIMENTInput {
+  id: Int!
+  name: String
+  img_path: String
+}
+
+type EXPERIMENT {
+  id: Int!
+  name: String
+  img_path: String
+}
+
+input UpdateEXPERIMENTInput {
+  id: Int!
+  name: String
+  img_path: String
+}
+
+input CreateSTUDENTInput {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  file_id: String!
+  email: String!
+  quantityViolations: Int
+  status: String
+  cleanDate: AWSDate
+}
+
+type STUDENT {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  file_id: String!
+  email: String!
+  quantityViolations: Int
+  status: String
+  cleanDate: AWSDate
+}
+
+input UpdateSTUDENTInput {
+  id: Int!
+  first_name: String
+  last_name: String
+  file_id: String
+  email: String
+  quantityViolations: Int
+  status: String
+  cleanDate: AWSDate
+}
+
+input CreateTEACHERInput {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  email: String!
+}
+
+type TEACHER {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  email: String!
+}
+
+input UpdateTEACHERInput {
+  id: Int!
+  first_name: String
+  last_name: String
+  email: String
+}
+
+type Mutation {
+  deleteAPPOINTMENT(id: Int!): APPOINTMENT
+  createAPPOINTMENT(createAPPOINTMENTInput: CreateAPPOINTMENTInput!): APPOINTMENT
+  updateAPPOINTMENT(updateAPPOINTMENTInput: UpdateAPPOINTMENTInput!): APPOINTMENT
+  deleteCLASS(id: Int!): CLASS
+  createCLASS(createCLASSInput: CreateCLASSInput!): CLASS
+  updateCLASS(updateCLASSInput: UpdateCLASSInput!): CLASS
+  deleteEXPERIMENT(id: Int!): EXPERIMENT
+  createEXPERIMENT(createEXPERIMENTInput: CreateEXPERIMENTInput!): EXPERIMENT
+  updateEXPERIMENT(updateEXPERIMENTInput: UpdateEXPERIMENTInput!): EXPERIMENT
+  deleteSTUDENT(id: Int!): STUDENT
+  createSTUDENT(createSTUDENTInput: CreateSTUDENTInput!): STUDENT
+  updateSTUDENT(updateSTUDENTInput: UpdateSTUDENTInput!): STUDENT
+  deleteTEACHER(id: Int!): TEACHER
+  createTEACHER(createTEACHERInput: CreateTEACHERInput!): TEACHER
+  updateTEACHER(updateTEACHERInput: UpdateTEACHERInput!): TEACHER
+  deleteCLASSXSTUDENT(id: Int!): CLASSXSTUDENT
+  createCLASSXSTUDENT(createCLASSXSTUDENTInput: CreateCLASSXSTUDENTInput!): CLASSXSTUDENT
+  updateCLASSXSTUDENT(updateCLASSXSTUDENTInput: UpdateCLASSXSTUDENTInput!): CLASSXSTUDENT
+}
+
+type Query {
+  getAPPOINTMENT(id: Int!): APPOINTMENT
+  listAPPOINTMENTs: [APPOINTMENT]
+  getCLASS(id: Int!): CLASS
+  listCLASSs: [CLASS]
+  getEXPERIMENT(id: Int!): EXPERIMENT
+  listEXPERIMENTs: [EXPERIMENT]
+  getSTUDENT(id: Int!): STUDENT
+  listSTUDENTs: [STUDENT]
+  getTEACHER(id: Int!): TEACHER
+  listTEACHERs: [TEACHER]
+  getCLASSXSTUDENT(id: Int!): CLASSXSTUDENT
+  listCLASSXSTUDENTs: [CLASSXSTUDENT]
+}
+
+type Subscription {
+  onCreateAPPOINTMENT: APPOINTMENT @aws_subscribe(mutations: ["createAPPOINTMENT"])
+  onCreateCLASS: CLASS @aws_subscribe(mutations: ["createCLASS"])
+  onCreateEXPERIMENT: EXPERIMENT @aws_subscribe(mutations: ["createEXPERIMENT"])
+  onCreateSTUDENT: STUDENT @aws_subscribe(mutations: ["createSTUDENT"])
+  onCreateTEACHER: TEACHER @aws_subscribe(mutations: ["createTEACHER"])
+  onCreateCLASSXSTUDENT: CLASSXSTUDENT @aws_subscribe(mutations: ["createCLASSXSTUDENT"])
+}
+
+input CreateCLASSXSTUDENTInput {
+  idClass: Int
+  idStudent: Int
+  id: Int!
+}
+
+type CLASSXSTUDENT {
+  idClass: Int
+  idStudent: Int
+  id: Int!
+}
+
+input UpdateCLASSXSTUDENTInput {
+  idClass: Int
+  idStudent: Int
+  id: Int!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
