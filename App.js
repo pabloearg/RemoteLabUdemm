@@ -1,13 +1,15 @@
+// @flow
 import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeModules, StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import Amplify from 'aws-amplify';
 import PushNotification from '@aws-amplify/pushnotification';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Provider } from 'react-redux';
+import Amplify, { Auth } from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react-native';
 import RootStack from './src/Navigators/RootStack';
 import { navigatorRef } from './src/Navigators/navigator';
 import config from './src/aws-exports';
@@ -40,7 +42,7 @@ const App = () => {
 
   useEffect(() => {
     // getTotken().then((token) => alert(token));
-    NativeModules.RNPushNotification.getToken((token) => console.log(token));
+    // NativeModules.RNPushNotification.getToken((token) => console.log(token));
   });
   return (
     <Provider store={createStore()}>
@@ -54,4 +56,8 @@ const App = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App, {
+  signUpConfig: {
+    hiddenDefaults: ['phone_number', ]
+  }
+});

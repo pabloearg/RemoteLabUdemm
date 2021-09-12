@@ -6,7 +6,7 @@ import {
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import ButtonLarge from '../../Components/ButtonLarge/ButtonLarge';
+import ButtonLarge from '../../Components/buttons/ButtonLarge/ButtonLarge';
 import ScreensNames from '../ScreensNames';
 // import { ButtonLarge } from '../../Components/ButtonLarge/ButtonLarge';
 

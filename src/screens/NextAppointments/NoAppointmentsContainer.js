@@ -7,10 +7,12 @@ import { getString, translateEnum } from '../../static/locale';
 import { Colors } from '../../styles';
 
 import experiment1 from '../../static/assets/img/experiment4.png';
+import ButtonLarge from '../../Components/buttons/ButtonLarge/ButtonLarge';
 
 const NoAppointmentsContainer = () => (
   <View style={styles.container}>
     <Image source={experiment1} style={{ height: 140, aspectRatio: 1.068, marginBottom: 20 }} />
+    {/* <ButtonLarge */}
     <TextHeadings
       text={getString(translateEnum.INTRO_APPOINTMENT_CURRENT_TITLE)}
       type="h5"

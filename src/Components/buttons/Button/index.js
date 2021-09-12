@@ -3,8 +3,8 @@ import React from 'react';
 import {
   TouchableOpacity, StyleSheet
 } from 'react-native';
-import type { ViewStyle, TextStyle } from '../../styles/types';
-import TextHeadings from '../TextHeadings/TextHeadings';
+import type { ViewStyle, TextStyle } from '../../../styles/types';
+import TextHeadings from '../../TextHeadings/TextHeadings';
 
 type Props = {
   backgroundColor?: string,
@@ -33,7 +33,7 @@ const Button = (props: Props) => {
     >
       <TextHeadings
         type="normal"
-        styleText={[styles.Text, textStyle,]}
+        styleText={[styles.Text, textStyle]}
       >
         {props.text ?? props.children}
 

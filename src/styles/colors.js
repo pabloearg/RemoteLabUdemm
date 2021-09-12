@@ -1,3 +1,4 @@
+export const BLACK = '#000';
 export const BLUE = '#007bff';
 export const BLUE_HEADER = '#486BB1';
 export const INDIGO = '#6610f2';
@@ -21,3 +22,4 @@ export const DANGER = '#dc3545';
 export const LIGHT = '#f8f9fa';
 export const DARK = '#343a40';
 export const LIGHT_GRAY = '#D2D2D2';
+export const DISABLED_GREY = '#C7C7C7';
