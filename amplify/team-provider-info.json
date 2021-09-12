@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-appointmentremotelab-dev-172430-authRole",
+      "UnauthRoleArn": "arn:aws:iam::044303538011:role/amplify-appointmentremotelab-dev-172430-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::044303538011:role/amplify-appointmentremotelab-dev-172430-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-appointmentremotelab-dev-172430-deployment",
+      "UnauthRoleName": "amplify-appointmentremotelab-dev-172430-unauthRole",
+      "StackName": "amplify-appointmentremotelab-dev-172430",
+      "StackId": "arn:aws:cloudformation:us-east-1:044303538011:stack/amplify-appointmentremotelab-dev-172430/7202b770-1407-11ec-91bb-0aad277d2d75",
+      "AmplifyAppId": "d1n5mun37k7qp2"
+    },
+    "categories": {
+      "auth": {
+        "appointmentremotelab303630a6": {}
+      }
+    }
+  }
+}
