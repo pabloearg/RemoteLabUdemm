@@ -58,6 +58,6 @@ const App = () => {
 
 export default withAuthenticator(App, {
   signUpConfig: {
-    hiddenDefaults: ['phone_number', ]
+    hiddenDefaults: ['phone_number',]
   }
 });

@@ -1,0 +1,58 @@
+type User @model 
+  @auth(rules: [{ allow: owner, operations: [create, delete, update] }]) 
+  @key(fields: ["email"], name: "userByEmail", queryField: "userByEmail") {
+  email: String!
+  firstName: String!
+  lastName: String!
+  filedId: String
+  quantityViolations: Int
+  cleanDate: AWSDate
+  type: String!  
+  classes: [String]
+  appointments: [AppointmentLocal]
+}
+
+type AppointmentLocal {
+  experimentId: String
+  uuid: String
+  hour: AWSTime
+  day: AWSDate
+}
+
+type Appointment @model 
+  @key(fields: ["id","experimentId","day","hour"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
+  @key(fields: ["day","experimentId"], name: "appointmentByDatAndExperiment",  queryField: "appointmentByDayAndExperiment") 
+  @key(fields: ["uuid"],name: "appointmentByUuid",  queryField: "appointmentByUuid") 
+  @key( fields: ["email"],name: "appointmentByEmail",  queryField: "appointmentByEmail") {
+  id:ID!
+  day: String
+  hour: String
+  uuid: String
+  email: String
+  firstName: String
+  lastName: String
+  experimentId: String
+}
+
+type Class @model 
+  @key(name: "classById", fields: ["id"], queryField: "classById") {
+  id: ID!
+  name: String!
+  students: [Student]
+}
+
+type Student {
+  email: String
+  firstName: String
+  lastName: String
+}
+
+type Config @model{
+  experiments: [Experiment]
+}
+
+type Experiment {
+  uuid: ID!
+  name: String!
+  iconUrl: String
+}

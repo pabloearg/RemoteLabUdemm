@@ -14,12 +14,10 @@ import experiment1 from '../../static/assets/img/experiment4.png';
 import NoAppointmentsContainer from './NoAppointmentsContainer';
 import FullScreenLoader from '../../Components/FullScreenLoader/FullScreenLoader';
 import {
-  listSTUDENTs,
-  listAPPOINTMENTs
-
+  getUser,
 } from '../../graphql/queries.ts';
 import {
-  createAPPOINTMENT
+
 } from '../../graphql/mutations.ts';
 import ButtonLarge from '../../Components/buttons/ButtonLarge/ButtonLarge';
 
@@ -32,18 +30,30 @@ const NextAppointments = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
-    API.graphql(graphqlOperation(listSTUDENTs));
-    API.graphql(graphqlOperation(listAPPOINTMENTs));
+    API.graphql(graphqlOperation(getUser, { id: 'pabloearg@gmail.com' }));
   }, []);
 
   const [formState, setFormState] = useState(initialState);
   const [todos, setTodos] = useState([]);
 
   const addAppointments = () => {
-    API.graphql(graphqlOperation(createAPPOINTMENT, {
-      createAPPOINTMENTInput: {
-        day: '2021-09-11', // YYYY-MM-DD
-        hour: '09:00', // hh:mm
+    API.graphql(graphqlOperation(createUser, {
+      input: {
+        id: 'pabloearg@gmail.com',
+        email: 'pabloearg@gmail.com',
+        firstName: 'Pablo',
+        lastName: 'Arguimbau',
+        filedId: '19045',
+        quantityViolations: 0,
+        cleanDate: null,
+        type: 'student',
+        classes: [],
+        appointments: [{
+          experimentId: '1',
+          uuid: '1',
+          hour: '09:00',
+          day: '2021-10-10',
+        }]
       }
     }));
   };
