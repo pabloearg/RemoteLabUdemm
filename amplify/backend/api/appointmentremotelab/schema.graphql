@@ -8,7 +8,7 @@ type User @model
   quantityViolations: Int
   cleanDate: AWSDate
   type: String!  
-  classes: [String]
+  subjects: [String]
   appointments: [AppointmentLocal]
 }
 
@@ -23,7 +23,7 @@ type Appointment @model
   @key(fields: ["id","experimentId","day","hour"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
   @key(fields: ["day","experimentId"], name: "appointmentByDatAndExperiment",  queryField: "appointmentByDayAndExperiment") 
   @key(fields: ["uuid"],name: "appointmentByUuid",  queryField: "appointmentByUuid") 
-  @key( fields: ["email"],name: "appointmentByEmail",  queryField: "appointmentByEmail") {
+  @key( fields: ["email"]) {
   id:ID!
   day: String
   hour: String
@@ -34,11 +34,13 @@ type Appointment @model
   experimentId: String
 }
 
-type Class @model 
-  @key(name: "classById", fields: ["id"], queryField: "classById") {
+type Subject @model 
+  @key(name: "subjectById", fields: ["id"], queryField: "subjectById") {
   id: ID!
   name: String!
   students: [Student]
+  periodBlock: String!
+  university: String!
 }
 
 type Student {

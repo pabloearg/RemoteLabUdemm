@@ -26,7 +26,9 @@ module.exports = {
     'no-plusplus': 'off',
     'no-mixed-operators': 'off',
     'import/prefer-default-export': 'off',
+    'flowtype/no-types-missing-file-annotation': 'off',
     eqeqeq: 'off',
+    'import/extensions': 'off',
     'no-useless-constructor': 'off',
     'prefer-destructuring': 'off',
     'react/sort-comp': 'off',
@@ -52,7 +54,7 @@ module.exports = {
       '.jsx'
     ],
     flowtype: {
-      onlyFilesWithFlowAnnotation: true,
+      onlyFilesWithFlowAnnotation: false,
     },
     'import/no-unresolved': [2, { ignore: ['.png$', '.webp$', '.jpg$'] }]
 

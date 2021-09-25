@@ -11,7 +11,7 @@ export type CreateUserInput = {
   quantityViolations?: number | null,
   cleanDate?: string | null,
   type: string,
-  classes?: Array< string | null > | null,
+  subjects?: Array< string | null > | null,
   appointments?: Array< AppointmentLocalInput | null > | null,
 };
 
@@ -30,7 +30,7 @@ export type ModelUserConditionInput = {
   quantityViolations?: ModelIntInput | null,
   cleanDate?: ModelStringInput | null,
   type?: ModelStringInput | null,
-  classes?: ModelStringInput | null,
+  subjects?: ModelStringInput | null,
   and?: Array< ModelUserConditionInput | null > | null,
   or?: Array< ModelUserConditionInput | null > | null,
   not?: ModelUserConditionInput | null,
@@ -98,7 +98,7 @@ export type User = {
   quantityViolations?: number | null,
   cleanDate?: string | null,
   type: string,
-  classes?: Array< string | null > | null,
+  subjects?: Array< string | null > | null,
   appointments?:  Array<AppointmentLocal | null > | null,
   createdAt: string,
   updatedAt: string,
@@ -121,7 +121,7 @@ export type UpdateUserInput = {
   quantityViolations?: number | null,
   cleanDate?: string | null,
   type?: string | null,
-  classes?: Array< string | null > | null,
+  subjects?: Array< string | null > | null,
   appointments?: Array< AppointmentLocalInput | null > | null,
 };
 
@@ -182,7 +182,7 @@ export type DeleteAppointmentInput = {
   id: string,
 };
 
-export type CreateClassInput = {
+export type CreateSubjectInput = {
   id?: string | null,
   name: string,
   students?: Array< StudentInput | null > | null,
@@ -194,15 +194,15 @@ export type StudentInput = {
   lastName?: string | null,
 };
 
-export type ModelClassConditionInput = {
+export type ModelSubjectConditionInput = {
   name?: ModelStringInput | null,
-  and?: Array< ModelClassConditionInput | null > | null,
-  or?: Array< ModelClassConditionInput | null > | null,
-  not?: ModelClassConditionInput | null,
+  and?: Array< ModelSubjectConditionInput | null > | null,
+  or?: Array< ModelSubjectConditionInput | null > | null,
+  not?: ModelSubjectConditionInput | null,
 };
 
-export type Class = {
-  __typename: "Class",
+export type Subject = {
+  __typename: "Subject",
   id: string,
   name: string,
   students?:  Array<Student | null > | null,
@@ -217,13 +217,13 @@ export type Student = {
   lastName?: string | null,
 };
 
-export type UpdateClassInput = {
+export type UpdateSubjectInput = {
   id: string,
   name?: string | null,
   students?: Array< StudentInput | null > | null,
 };
 
-export type DeleteClassInput = {
+export type DeleteSubjectInput = {
   id: string,
 };
 
@@ -275,7 +275,7 @@ export type ModelUserFilterInput = {
   quantityViolations?: ModelIntInput | null,
   cleanDate?: ModelStringInput | null,
   type?: ModelStringInput | null,
-  classes?: ModelStringInput | null,
+  subjects?: ModelStringInput | null,
   and?: Array< ModelUserFilterInput | null > | null,
   or?: Array< ModelUserFilterInput | null > | null,
   not?: ModelUserFilterInput | null,
@@ -323,17 +323,17 @@ export type ModelAppointmentConnection = {
   nextToken?: string | null,
 };
 
-export type ModelClassFilterInput = {
+export type ModelSubjectFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
-  and?: Array< ModelClassFilterInput | null > | null,
-  or?: Array< ModelClassFilterInput | null > | null,
-  not?: ModelClassFilterInput | null,
+  and?: Array< ModelSubjectFilterInput | null > | null,
+  or?: Array< ModelSubjectFilterInput | null > | null,
+  not?: ModelSubjectFilterInput | null,
 };
 
-export type ModelClassConnection = {
-  __typename: "ModelClassConnection",
-  items?:  Array<Class | null > | null,
+export type ModelSubjectConnection = {
+  __typename: "ModelSubjectConnection",
+  items?:  Array<Subject | null > | null,
   nextToken?: string | null,
 };
 
@@ -397,7 +397,7 @@ export type CreateUserMutation = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -427,7 +427,7 @@ export type UpdateUserMutation = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -457,7 +457,7 @@ export type DeleteUserMutation = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -534,14 +534,14 @@ export type DeleteAppointmentMutation = {
   } | null,
 };
 
-export type CreateClassMutationVariables = {
-  input: CreateClassInput,
-  condition?: ModelClassConditionInput | null,
+export type CreateSubjectMutationVariables = {
+  input: CreateSubjectInput,
+  condition?: ModelSubjectConditionInput | null,
 };
 
-export type CreateClassMutation = {
-  createClass?:  {
-    __typename: "Class",
+export type CreateSubjectMutation = {
+  createSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {
@@ -555,14 +555,14 @@ export type CreateClassMutation = {
   } | null,
 };
 
-export type UpdateClassMutationVariables = {
-  input: UpdateClassInput,
-  condition?: ModelClassConditionInput | null,
+export type UpdateSubjectMutationVariables = {
+  input: UpdateSubjectInput,
+  condition?: ModelSubjectConditionInput | null,
 };
 
-export type UpdateClassMutation = {
-  updateClass?:  {
-    __typename: "Class",
+export type UpdateSubjectMutation = {
+  updateSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {
@@ -576,14 +576,14 @@ export type UpdateClassMutation = {
   } | null,
 };
 
-export type DeleteClassMutationVariables = {
-  input: DeleteClassInput,
-  condition?: ModelClassConditionInput | null,
+export type DeleteSubjectMutationVariables = {
+  input: DeleteSubjectInput,
+  condition?: ModelSubjectConditionInput | null,
 };
 
-export type DeleteClassMutation = {
-  deleteClass?:  {
-    __typename: "Class",
+export type DeleteSubjectMutation = {
+  deleteSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {
@@ -672,7 +672,7 @@ export type GetUserQuery = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -705,7 +705,7 @@ export type ListUsersQuery = {
       quantityViolations?: number | null,
       cleanDate?: string | null,
       type: string,
-      classes?: Array< string | null > | null,
+      subjects?: Array< string | null > | null,
       appointments?:  Array< {
         __typename: "AppointmentLocal",
         experimentId?: string | null,
@@ -767,13 +767,13 @@ export type ListAppointmentsQuery = {
   } | null,
 };
 
-export type GetClassQueryVariables = {
+export type GetSubjectQueryVariables = {
   id: string,
 };
 
-export type GetClassQuery = {
-  getClass?:  {
-    __typename: "Class",
+export type GetSubjectQuery = {
+  getSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {
@@ -787,17 +787,17 @@ export type GetClassQuery = {
   } | null,
 };
 
-export type ListClasssQueryVariables = {
-  filter?: ModelClassFilterInput | null,
+export type ListSubjectsQueryVariables = {
+  filter?: ModelSubjectFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListClasssQuery = {
-  listClasss?:  {
-    __typename: "ModelClassConnection",
+export type ListSubjectsQuery = {
+  listSubjects?:  {
+    __typename: "ModelSubjectConnection",
     items?:  Array< {
-      __typename: "Class",
+      __typename: "Subject",
       id: string,
       name: string,
       students?:  Array< {
@@ -878,7 +878,7 @@ export type UserByEmailQuery = {
       quantityViolations?: number | null,
       cleanDate?: string | null,
       type: string,
-      classes?: Array< string | null > | null,
+      subjects?: Array< string | null > | null,
       appointments?:  Array< {
         __typename: "AppointmentLocal",
         experimentId?: string | null,
@@ -980,47 +980,19 @@ export type AppointmentByUuidQuery = {
   } | null,
 };
 
-export type AppointmentByEmailQueryVariables = {
-  email?: string | null,
-  sortDirection?: ModelSortDirection | null,
-  filter?: ModelAppointmentFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type AppointmentByEmailQuery = {
-  appointmentByEmail?:  {
-    __typename: "ModelAppointmentConnection",
-    items?:  Array< {
-      __typename: "Appointment",
-      id: string,
-      day?: string | null,
-      hour?: string | null,
-      uuid?: string | null,
-      email?: string | null,
-      firstName?: string | null,
-      lastName?: string | null,
-      experimentId?: string | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type ClassByIdQueryVariables = {
+export type SubjectByIdQueryVariables = {
   id?: string | null,
   sortDirection?: ModelSortDirection | null,
-  filter?: ModelClassFilterInput | null,
+  filter?: ModelSubjectFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ClassByIdQuery = {
-  classById?:  {
-    __typename: "ModelClassConnection",
+export type SubjectByIdQuery = {
+  subjectById?:  {
+    __typename: "ModelSubjectConnection",
     items?:  Array< {
-      __typename: "Class",
+      __typename: "Subject",
       id: string,
       name: string,
       students?:  Array< {
@@ -1047,7 +1019,7 @@ export type OnCreateUserSubscription = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -1072,7 +1044,7 @@ export type OnUpdateUserSubscription = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -1097,7 +1069,7 @@ export type OnDeleteUserSubscription = {
     quantityViolations?: number | null,
     cleanDate?: string | null,
     type: string,
-    classes?: Array< string | null > | null,
+    subjects?: Array< string | null > | null,
     appointments?:  Array< {
       __typename: "AppointmentLocal",
       experimentId?: string | null,
@@ -1159,9 +1131,9 @@ export type OnDeleteAppointmentSubscription = {
   } | null,
 };
 
-export type OnCreateClassSubscription = {
-  onCreateClass?:  {
-    __typename: "Class",
+export type OnCreateSubjectSubscription = {
+  onCreateSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {
@@ -1175,9 +1147,9 @@ export type OnCreateClassSubscription = {
   } | null,
 };
 
-export type OnUpdateClassSubscription = {
-  onUpdateClass?:  {
-    __typename: "Class",
+export type OnUpdateSubjectSubscription = {
+  onUpdateSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {
@@ -1191,9 +1163,9 @@ export type OnUpdateClassSubscription = {
   } | null,
 };
 
-export type OnDeleteClassSubscription = {
-  onDeleteClass?:  {
-    __typename: "Class",
+export type OnDeleteSubjectSubscription = {
+  onDeleteSubject?:  {
+    __typename: "Subject",
     id: string,
     name: string,
     students?:  Array< {

@@ -43,7 +43,8 @@ const App = () => {
   useEffect(() => {
     // getTotken().then((token) => alert(token));
     // NativeModules.RNPushNotification.getToken((token) => console.log(token));
-  });
+    console.log('componentDidMount');
+  }, []);
   return (
     <Provider store={createStore()}>
       <SafeAreaProvider>
@@ -58,6 +59,7 @@ const App = () => {
 
 export default withAuthenticator(App, {
   signUpConfig: {
-    hiddenDefaults: ['phone_number',]
+    hiddenDefaults: ['phone_number', ]
   }
 });
+// export default App;
