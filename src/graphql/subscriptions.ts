@@ -13,7 +13,7 @@ export const onCreateUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -37,7 +37,7 @@ export const onUpdateUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -61,7 +61,7 @@ export const onDeleteUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -122,9 +122,9 @@ export const onDeleteAppointment = /* GraphQL */ `
     }
   }
 `;
-export const onCreateClass = /* GraphQL */ `
-  subscription OnCreateClass {
-    onCreateClass {
+export const onCreateSubject = /* GraphQL */ `
+  subscription OnCreateSubject {
+    onCreateSubject {
       id
       name
       students {
@@ -137,9 +137,9 @@ export const onCreateClass = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateClass = /* GraphQL */ `
-  subscription OnUpdateClass {
-    onUpdateClass {
+export const onUpdateSubject = /* GraphQL */ `
+  subscription OnUpdateSubject {
+    onUpdateSubject {
       id
       name
       students {
@@ -152,9 +152,9 @@ export const onUpdateClass = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteClass = /* GraphQL */ `
-  subscription OnDeleteClass {
-    onDeleteClass {
+export const onDeleteSubject = /* GraphQL */ `
+  subscription OnDeleteSubject {
+    onDeleteSubject {
       id
       name
       students {

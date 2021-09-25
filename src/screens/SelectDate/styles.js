@@ -23,9 +23,12 @@ const selectDateStyles = StyleSheet.create({
   },
   rowContainer: {
     flexDirection: 'row',
-    paddingVertical: 15,
+    paddingVertical: 20,
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    marginBottom: 10,
+    paddingLeft: 10,
   },
   rowIcon: {
     height: 30,

@@ -1,8 +1,8 @@
-// @flow
 import React from 'react';
 import {
   FlatList, StyleSheet, Text, View
 } from 'react-native';
+import { useSelector } from 'react-redux';
 import arbolIcon from '../../static/assets/img/icons/arbol.png';
 import capacitorIcon from '../../static/assets/img/icons/cargaCapacitor.png';
 import estadisticoIcon from '../../static/assets/img/icons/estadistico.png';
@@ -46,21 +46,25 @@ const Icons = {
 };
 
 const SelectExperiment = () => {
-  const renderItem = ({ item }: {item: Experiment}) => {
+  const experiments = useSelector((state) => state?.config?.experimentsArray);
+  console.log({ experiments });
+  const renderItem = ({ item }: { item: Experiment }) => {
     console.log('item: ', item);
     return (
       <ExperimentRow
-        icon={Icons[item.id]}
-        title={item.title}
-        id={item.id}
+        experiment={item}
       />
     );
   };
+
+  const getKey = (item) => item.uuid;
+
   return (
     <View style={{ padding: 28 }}>
       <FlatList
+        keyExtractor={getKey}
         renderItem={renderItem}
-        data={Experimentos}
+        data={experiments}
         ItemSeparatorComponent={Separator}
       />
     </View>

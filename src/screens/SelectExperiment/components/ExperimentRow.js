@@ -6,34 +6,33 @@ import {
 } from 'react-native';
 import TextHeadings from '../../../Components/TextHeadings/TextHeadings';
 import { WHITE } from '../../../styles/colors';
-import type {
-  Experiment,
-} from '../../../types';
+
 import ScreensNames from '../../ScreensNames';
 import { SelectExpermientStyles } from '../styles';
+import type {
+  ExperimentsRL
+} from '../../../types/graphql';
 
-type Props = Experiment
+type Props = {
+  experiment: ExperimentsRL,
+  onPress: ()=>void
+}
 const ExperimentRow = ({
-  icon,
-  id,
-  title,
+  experiment,
   onPress
 }: Props) => {
   const { navigate } = useNavigation();
   return (
     <TouchableOpacity
       style={SelectExpermientStyles.rowContainer}
-      onPress={() => navigate(ScreensNames.SELECT_DATE, {
-        id,
-        title,
-      })}
+      onPress={() => navigate(ScreensNames.SELECT_DATE, { experiment })}
     >
       <Image
-        source={icon}
+        source={{ uri: experiment.iconUrl }}
         style={SelectExpermientStyles.icon}
       />
       <TextHeadings
-        text={title}
+        text={experiment.name}
         type="item1"
         color="black"
       />

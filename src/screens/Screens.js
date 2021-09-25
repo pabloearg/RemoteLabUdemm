@@ -7,10 +7,12 @@ import { getString, translateEnum } from '../static/locale';
 import { colorHeaderStyle } from '../styles/header';
 import LoginContainer from './Login/LoginContainer';
 import NextAppointments from './NextAppointments/NextAppointments';
+import ConfirmAppointment from './ConfirmAppointment';
 import PreviousAppointments from './PreviousAppointments/PreviousAppointments';
 import ScreensNames from './ScreensNames';
 import Splash from './Splash/SplashContainer';
 import AddIcon from '../Components/AddIcon/AddIcon';
+import LogoutButton from '../Components/buttons/LogoutButton/LogoutButton';
 import SelectExperiment from './SelectExperiment/SelectExperiment';
 import SelectDate from './SelectDate';
 // import Home from '../Navigators/Home';
@@ -37,6 +39,9 @@ const Screens: {
       headerRight: (props) => (
         <AddIcon />
       ),
+      headerLeft: (props) => (
+        <LogoutButton />
+      ),
     }
   },
   [ScreensNames.LOGIN]: {
@@ -62,6 +67,11 @@ const Screens: {
     name: ScreensNames.SELECT_DATE,
     component: SelectDate,
     options: { title: getString(translateEnum.SELECT_DATE_TITLE) }
+  },
+  [ScreensNames.CONFIRM_APPOINTMENT]: {
+    name: ScreensNames.CONFIRM_APPOINTMENT,
+    component: ConfirmAppointment,
+    options: { title: getString(translateEnum.CONFIRM_APPOINTMENT_TITLE) }
   },
 };
 

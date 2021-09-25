@@ -16,7 +16,7 @@ export const createUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -43,7 +43,7 @@ export const updateUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -70,7 +70,7 @@ export const deleteUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -140,12 +140,12 @@ export const deleteAppointment = /* GraphQL */ `
     }
   }
 `;
-export const createClass = /* GraphQL */ `
-  mutation CreateClass(
-    $input: CreateClassInput!
-    $condition: ModelClassConditionInput
+export const createSubject = /* GraphQL */ `
+  mutation CreateSubject(
+    $input: CreateSubjectInput!
+    $condition: ModelSubjectConditionInput
   ) {
-    createClass(input: $input, condition: $condition) {
+    createSubject(input: $input, condition: $condition) {
       id
       name
       students {
@@ -158,12 +158,12 @@ export const createClass = /* GraphQL */ `
     }
   }
 `;
-export const updateClass = /* GraphQL */ `
-  mutation UpdateClass(
-    $input: UpdateClassInput!
-    $condition: ModelClassConditionInput
+export const updateSubject = /* GraphQL */ `
+  mutation UpdateSubject(
+    $input: UpdateSubjectInput!
+    $condition: ModelSubjectConditionInput
   ) {
-    updateClass(input: $input, condition: $condition) {
+    updateSubject(input: $input, condition: $condition) {
       id
       name
       students {
@@ -176,12 +176,12 @@ export const updateClass = /* GraphQL */ `
     }
   }
 `;
-export const deleteClass = /* GraphQL */ `
-  mutation DeleteClass(
-    $input: DeleteClassInput!
-    $condition: ModelClassConditionInput
+export const deleteSubject = /* GraphQL */ `
+  mutation DeleteSubject(
+    $input: DeleteSubjectInput!
+    $condition: ModelSubjectConditionInput
   ) {
-    deleteClass(input: $input, condition: $condition) {
+    deleteSubject(input: $input, condition: $condition) {
       id
       name
       students {

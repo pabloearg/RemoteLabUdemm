@@ -7,11 +7,10 @@ import type { HEADING_TYPES } from '../../styles/text';
 /* eslint-disable react/jsx-props-no-spreading */
 type Props = {
   type?: HEADING_TYPES,
-  children: any,
+  children?: any,
   color?: "black" | "white" | undefined,
-  styleText: TextStyle,
-  text?: String,
-  ...any
+  styleText?: TextStyle,
+  text?: string,
 }
 
 const getStyle = (type: HEADING_TYPES) => TextStyles[type] ?? TextStyles.h4;
@@ -41,6 +40,8 @@ TextHeadings.defaultProps = {
   color: undefined,
   type: 'h4',
   text: undefined,
+  children: undefined,
+  styleText: undefined,
 };
 
 export default TextHeadings;

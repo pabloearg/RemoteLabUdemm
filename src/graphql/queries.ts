@@ -13,7 +13,7 @@ export const getUser = /* GraphQL */ `
       quantityViolations
       cleanDate
       type
-      classes
+      subjects
       appointments {
         experimentId
         uuid
@@ -42,7 +42,7 @@ export const listUsers = /* GraphQL */ `
         quantityViolations
         cleanDate
         type
-        classes
+        subjects
         appointments {
           experimentId
           uuid
@@ -96,9 +96,9 @@ export const listAppointments = /* GraphQL */ `
     }
   }
 `;
-export const getClass = /* GraphQL */ `
-  query GetClass($id: ID!) {
-    getClass(id: $id) {
+export const getSubject = /* GraphQL */ `
+  query GetSubject($id: ID!) {
+    getSubject(id: $id) {
       id
       name
       students {
@@ -111,13 +111,13 @@ export const getClass = /* GraphQL */ `
     }
   }
 `;
-export const listClasss = /* GraphQL */ `
-  query ListClasss(
-    $filter: ModelClassFilterInput
+export const listSubjects = /* GraphQL */ `
+  query ListSubjects(
+    $filter: ModelSubjectFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listClasss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listSubjects(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
@@ -192,7 +192,7 @@ export const userByEmail = /* GraphQL */ `
         quantityViolations
         cleanDate
         type
-        classes
+        subjects
         appointments {
           experimentId
           uuid
@@ -304,46 +304,15 @@ export const appointmentByUuid = /* GraphQL */ `
     }
   }
 `;
-export const appointmentByEmail = /* GraphQL */ `
-  query AppointmentByEmail(
-    $email: String
-    $sortDirection: ModelSortDirection
-    $filter: ModelAppointmentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    appointmentByEmail(
-      email: $email
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        day
-        hour
-        uuid
-        email
-        firstName
-        lastName
-        experimentId
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const classById = /* GraphQL */ `
-  query ClassById(
+export const subjectById = /* GraphQL */ `
+  query SubjectById(
     $id: ID
     $sortDirection: ModelSortDirection
-    $filter: ModelClassFilterInput
+    $filter: ModelSubjectFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    classById(
+    subjectById(
       id: $id
       sortDirection: $sortDirection
       filter: $filter

@@ -7,7 +7,13 @@ type Experiment = {
 
 type DateAppoinment = {
   id: string,
-  hours: Array<string>
+  day?: string | null,
+  hour?: string | null,
+  uuid?: string | null,
+  email?: string | null,
+  firstName?: string | null,
+  lastName?: string | null,
+  experimentId?: string | null,
 }
 
 export type {

@@ -10,5 +10,8 @@ export default {
   INTRO_APPOINTMENT_CURRENT_TITLE: 'Todavía no tenés turnos',
   INTRO_APPOINTMENT_CURRENT_DESCRIPTION: 'Podes sacar un turno para realizar tu experimento',
   SELECT_EXPERIMENT_TITLE: 'Nuevo Turno',
-  SELECT_DATE_TITLE: 'Elegir Turno',
+  SELECT_DATE_TITLE: 'Elegir un turno',
+
+  CONFIRM_APPOINTMENT_TITLE: 'Confirme su turno',
+  CONFIRM_APPOINTMENT_SUBMIT: 'CONFIRMAR',
 };

@@ -4,6 +4,7 @@ import moment from 'moment';
 import {
   FlatList, Image, StyleSheet, Text, TouchableOpacity, View
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import TextHeadings from '../../Components/TextHeadings/TextHeadings';
 import arrowIcon from '../../static/assets/img/arrow_grey.png';
 import type {
@@ -13,10 +14,14 @@ import type {
 import calendarIcon from '../../static/assets/img/calendar.png';
 import Separator from '../../Components/Separator/Separator';
 import { selectDateStyles } from './styles';
+import { DANGER } from '../../styles/colors';
+import ScreensNames from '../ScreensNames';
+import { getHourFromAppointment } from '../../utils/utils';
 
-const DateRow = ({ hours }) => {
+const DateRow = ({ appointment }: {appointment: DateAppoinment}) => {
+  const { navigate } = useNavigation();
   const goToConfirm = () => {
-
+    navigate(ScreensNames.CONFIRM_APPOINTMENT, { appointment });
   };
   return (
     <TouchableOpacity
@@ -30,9 +35,9 @@ const DateRow = ({ hours }) => {
         />
       </View>
       <TextHeadings
-        text={hours}
-        color="black"
-        type="body1"
+        text={getHourFromAppointment(appointment)}
+        color={DANGER}
+        type="h3"
         styleText={[selectDateStyles.column, selectDateStyles.text]}
       />
       <View style={selectDateStyles.column} />

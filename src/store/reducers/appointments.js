@@ -6,7 +6,10 @@ export default (state = initialState.appointments, action) => {
   // let data = Object.assign(state.data, action.kid)
   switch (action.type) {
     case types.GET_CURRENT_APPOINTMENTS_SUCCESS:
-      return state;
+      return {
+        ...state,
+        currentAppointments: { ...action.appointments }
+      };
     case types.ADD_APPOINTMENTS_SUCCESS:
       return state;
     case types.EDIT_APPOINTMENTS_SUCCESS:

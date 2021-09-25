@@ -12,4 +12,8 @@ export const initialState = {
   user: {
 
   },
+  config: {
+    experimentsArray: [],
+    experiments: {}
+  }
 };

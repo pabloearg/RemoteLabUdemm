@@ -46,6 +46,11 @@ const RootStack = () => {
         component={Screens[ScreensNames.SELECT_DATE].component}
         options={Screens[ScreensNames.SELECT_DATE].options}
       />
+      <Stack.Screen
+        name={Screens[ScreensNames.CONFIRM_APPOINTMENT].name}
+        component={Screens[ScreensNames.CONFIRM_APPOINTMENT].component}
+        options={Screens[ScreensNames.CONFIRM_APPOINTMENT].options}
+      />
     </Stack.Navigator>
   );
 };

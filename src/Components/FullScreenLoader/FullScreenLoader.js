@@ -3,9 +3,11 @@ import {
   ActivityIndicator, StyleSheet, Text, View
 } from 'react-native';
 
-const FullScreenLoader = () => (
+const FullScreenLoader = ({
+  color
+}) => (
   <View style={styles.container}>
-    <ActivityIndicator size="large" />
+    <ActivityIndicator size="large" color={color} />
   </View>
 );
 
