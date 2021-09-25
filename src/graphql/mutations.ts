@@ -93,9 +93,7 @@ export const createAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
@@ -112,9 +110,7 @@ export const updateAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
@@ -131,12 +127,70 @@ export const deleteAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
+    }
+  }
+`;
+export const createAppointmentTaken = /* GraphQL */ `
+  mutation CreateAppointmentTaken(
+    $input: CreateAppointmentTakenInput!
+    $condition: ModelAppointmentTakenConditionInput
+  ) {
+    createAppointmentTaken(input: $input, condition: $condition) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateAppointmentTaken = /* GraphQL */ `
+  mutation UpdateAppointmentTaken(
+    $input: UpdateAppointmentTakenInput!
+    $condition: ModelAppointmentTakenConditionInput
+  ) {
+    updateAppointmentTaken(input: $input, condition: $condition) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteAppointmentTaken = /* GraphQL */ `
+  mutation DeleteAppointmentTaken(
+    $input: DeleteAppointmentTakenInput!
+    $condition: ModelAppointmentTakenConditionInput
+  ) {
+    deleteAppointmentTaken(input: $input, condition: $condition) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
     }
   }
 `;
@@ -153,6 +207,8 @@ export const createSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }
@@ -171,6 +227,8 @@ export const updateSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }
@@ -189,6 +247,8 @@ export const deleteSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }

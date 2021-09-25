@@ -134,9 +134,7 @@ export type CreateAppointmentInput = {
   day?: string | null,
   hour?: string | null,
   uuid?: string | null,
-  email?: string | null,
-  firstName?: string | null,
-  lastName?: string | null,
+  isTaken?: string | null,
   experimentId?: string | null,
 };
 
@@ -144,9 +142,7 @@ export type ModelAppointmentConditionInput = {
   day?: ModelStringInput | null,
   hour?: ModelStringInput | null,
   uuid?: ModelStringInput | null,
-  email?: ModelStringInput | null,
-  firstName?: ModelStringInput | null,
-  lastName?: ModelStringInput | null,
+  isTaken?: ModelStringInput | null,
   experimentId?: ModelStringInput | null,
   and?: Array< ModelAppointmentConditionInput | null > | null,
   or?: Array< ModelAppointmentConditionInput | null > | null,
@@ -159,9 +155,7 @@ export type Appointment = {
   day?: string | null,
   hour?: string | null,
   uuid?: string | null,
-  email?: string | null,
-  firstName?: string | null,
-  lastName?: string | null,
+  isTaken?: string | null,
   experimentId?: string | null,
   createdAt: string,
   updatedAt: string,
@@ -172,9 +166,7 @@ export type UpdateAppointmentInput = {
   day?: string | null,
   hour?: string | null,
   uuid?: string | null,
-  email?: string | null,
-  firstName?: string | null,
-  lastName?: string | null,
+  isTaken?: string | null,
   experimentId?: string | null,
 };
 
@@ -182,10 +174,66 @@ export type DeleteAppointmentInput = {
   id: string,
 };
 
+export type CreateAppointmentTakenInput = {
+  email: string,
+  day: string,
+  hour: string,
+  uuid: string,
+  firstName?: string | null,
+  lastName?: string | null,
+  experimentId: string,
+  status: string,
+};
+
+export type ModelAppointmentTakenConditionInput = {
+  day?: ModelStringInput | null,
+  hour?: ModelStringInput | null,
+  uuid?: ModelStringInput | null,
+  firstName?: ModelStringInput | null,
+  lastName?: ModelStringInput | null,
+  experimentId?: ModelStringInput | null,
+  status?: ModelStringInput | null,
+  and?: Array< ModelAppointmentTakenConditionInput | null > | null,
+  or?: Array< ModelAppointmentTakenConditionInput | null > | null,
+  not?: ModelAppointmentTakenConditionInput | null,
+};
+
+export type AppointmentTaken = {
+  __typename: "AppointmentTaken",
+  email: string,
+  day: string,
+  hour: string,
+  uuid: string,
+  firstName?: string | null,
+  lastName?: string | null,
+  experimentId: string,
+  status: string,
+  createdAt: string,
+  updatedAt: string,
+  owner?: string | null,
+};
+
+export type UpdateAppointmentTakenInput = {
+  email: string,
+  day?: string | null,
+  hour?: string | null,
+  uuid?: string | null,
+  firstName?: string | null,
+  lastName?: string | null,
+  experimentId?: string | null,
+  status?: string | null,
+};
+
+export type DeleteAppointmentTakenInput = {
+  email: string,
+};
+
 export type CreateSubjectInput = {
   id?: string | null,
   name: string,
   students?: Array< StudentInput | null > | null,
+  periodBlock: string,
+  university: string,
 };
 
 export type StudentInput = {
@@ -196,6 +244,8 @@ export type StudentInput = {
 
 export type ModelSubjectConditionInput = {
   name?: ModelStringInput | null,
+  periodBlock?: ModelStringInput | null,
+  university?: ModelStringInput | null,
   and?: Array< ModelSubjectConditionInput | null > | null,
   or?: Array< ModelSubjectConditionInput | null > | null,
   not?: ModelSubjectConditionInput | null,
@@ -206,6 +256,8 @@ export type Subject = {
   id: string,
   name: string,
   students?:  Array<Student | null > | null,
+  periodBlock: string,
+  university: string,
   createdAt: string,
   updatedAt: string,
 };
@@ -221,6 +273,8 @@ export type UpdateSubjectInput = {
   id: string,
   name?: string | null,
   students?: Array< StudentInput | null > | null,
+  periodBlock?: string | null,
+  university?: string | null,
 };
 
 export type DeleteSubjectInput = {
@@ -292,9 +346,7 @@ export type ModelAppointmentFilterInput = {
   day?: ModelStringInput | null,
   hour?: ModelStringInput | null,
   uuid?: ModelStringInput | null,
-  email?: ModelStringInput | null,
-  firstName?: ModelStringInput | null,
-  lastName?: ModelStringInput | null,
+  isTaken?: ModelStringInput | null,
   experimentId?: ModelStringInput | null,
   and?: Array< ModelAppointmentFilterInput | null > | null,
   or?: Array< ModelAppointmentFilterInput | null > | null,
@@ -323,9 +375,37 @@ export type ModelAppointmentConnection = {
   nextToken?: string | null,
 };
 
+export type ModelAppointmentTakenFilterInput = {
+  email?: ModelStringInput | null,
+  day?: ModelStringInput | null,
+  hour?: ModelStringInput | null,
+  uuid?: ModelStringInput | null,
+  firstName?: ModelStringInput | null,
+  lastName?: ModelStringInput | null,
+  experimentId?: ModelStringInput | null,
+  status?: ModelStringInput | null,
+  and?: Array< ModelAppointmentTakenFilterInput | null > | null,
+  or?: Array< ModelAppointmentTakenFilterInput | null > | null,
+  not?: ModelAppointmentTakenFilterInput | null,
+};
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
+export type ModelAppointmentTakenConnection = {
+  __typename: "ModelAppointmentTakenConnection",
+  items?:  Array<AppointmentTaken | null > | null,
+  nextToken?: string | null,
+};
+
 export type ModelSubjectFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
+  periodBlock?: ModelStringInput | null,
+  university?: ModelStringInput | null,
   and?: Array< ModelSubjectFilterInput | null > | null,
   or?: Array< ModelSubjectFilterInput | null > | null,
   not?: ModelSubjectFilterInput | null,
@@ -349,36 +429,34 @@ export type ModelConfigConnection = {
   nextToken?: string | null,
 };
 
-export enum ModelSortDirection {
-  ASC = "ASC",
-  DESC = "DESC",
-}
-
-
-export type ModelAppointmentAppointmentByDateAndExperimentCompositeKeyConditionInput = {
-  eq?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null,
-  le?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null,
-  lt?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null,
-  ge?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null,
-  gt?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null,
-  between?: Array< ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null > | null,
-  beginsWith?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput | null,
+export type ModelAppointmentAppointmentByDayAndExperimentCompositeKeyConditionInput = {
+  eq?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null,
+  le?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null,
+  lt?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null,
+  ge?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null,
+  gt?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null,
+  between?: Array< ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null > | null,
+  beginsWith?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput | null,
 };
 
-export type ModelAppointmentAppointmentByDateAndExperimentCompositeKeyInput = {
+export type ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput = {
   experimentId?: string | null,
+  isTaken?: string | null,
+};
+
+export type ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyConditionInput = {
+  eq?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null,
+  le?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null,
+  lt?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null,
+  ge?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null,
+  gt?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null,
+  between?: Array< ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null > | null,
+  beginsWith?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput | null,
+};
+
+export type ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput = {
   day?: string | null,
   hour?: string | null,
-};
-
-export type ModelStringKeyConditionInput = {
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
 };
 
 export type CreateUserMutationVariables = {
@@ -483,9 +561,7 @@ export type CreateAppointmentMutation = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
@@ -504,9 +580,7 @@ export type UpdateAppointmentMutation = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
@@ -525,12 +599,76 @@ export type DeleteAppointmentMutation = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
+  } | null,
+};
+
+export type CreateAppointmentTakenMutationVariables = {
+  input: CreateAppointmentTakenInput,
+  condition?: ModelAppointmentTakenConditionInput | null,
+};
+
+export type CreateAppointmentTakenMutation = {
+  createAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
+  } | null,
+};
+
+export type UpdateAppointmentTakenMutationVariables = {
+  input: UpdateAppointmentTakenInput,
+  condition?: ModelAppointmentTakenConditionInput | null,
+};
+
+export type UpdateAppointmentTakenMutation = {
+  updateAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
+  } | null,
+};
+
+export type DeleteAppointmentTakenMutationVariables = {
+  input: DeleteAppointmentTakenInput,
+  condition?: ModelAppointmentTakenConditionInput | null,
+};
+
+export type DeleteAppointmentTakenMutation = {
+  deleteAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -550,6 +688,8 @@ export type CreateSubjectMutation = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -571,6 +711,8 @@ export type UpdateSubjectMutation = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -592,6 +734,8 @@ export type DeleteSubjectMutation = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -732,9 +876,7 @@ export type GetAppointmentQuery = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
@@ -756,12 +898,60 @@ export type ListAppointmentsQuery = {
       day?: string | null,
       hour?: string | null,
       uuid?: string | null,
-      email?: string | null,
-      firstName?: string | null,
-      lastName?: string | null,
+      isTaken?: string | null,
       experimentId?: string | null,
       createdAt: string,
       updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetAppointmentTakenQueryVariables = {
+  email: string,
+};
+
+export type GetAppointmentTakenQuery = {
+  getAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
+  } | null,
+};
+
+export type ListAppointmentTakensQueryVariables = {
+  email?: string | null,
+  filter?: ModelAppointmentTakenFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
+};
+
+export type ListAppointmentTakensQuery = {
+  listAppointmentTakens?:  {
+    __typename: "ModelAppointmentTakenConnection",
+    items?:  Array< {
+      __typename: "AppointmentTaken",
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName?: string | null,
+      lastName?: string | null,
+      experimentId: string,
+      status: string,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -782,6 +972,8 @@ export type GetSubjectQuery = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -806,6 +998,8 @@ export type ListSubjectsQuery = {
         firstName?: string | null,
         lastName?: string | null,
       } | null > | null,
+      periodBlock: string,
+      university: string,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -894,38 +1088,9 @@ export type UserByEmailQuery = {
   } | null,
 };
 
-export type AppointmentByDateAndExperimentQueryVariables = {
-  id?: string | null,
-  experimentIdDayHour?: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyConditionInput | null,
-  sortDirection?: ModelSortDirection | null,
-  filter?: ModelAppointmentFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type AppointmentByDateAndExperimentQuery = {
-  appointmentByDateAndExperiment?:  {
-    __typename: "ModelAppointmentConnection",
-    items?:  Array< {
-      __typename: "Appointment",
-      id: string,
-      day?: string | null,
-      hour?: string | null,
-      uuid?: string | null,
-      email?: string | null,
-      firstName?: string | null,
-      lastName?: string | null,
-      experimentId?: string | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type AppointmentByDayAndExperimentQueryVariables = {
   day?: string | null,
-  experimentId?: ModelStringKeyConditionInput | null,
+  experimentIdIsTaken?: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyConditionInput | null,
   sortDirection?: ModelSortDirection | null,
   filter?: ModelAppointmentFilterInput | null,
   limit?: number | null,
@@ -941,9 +1106,7 @@ export type AppointmentByDayAndExperimentQuery = {
       day?: string | null,
       hour?: string | null,
       uuid?: string | null,
-      email?: string | null,
-      firstName?: string | null,
-      lastName?: string | null,
+      isTaken?: string | null,
       experimentId?: string | null,
       createdAt: string,
       updatedAt: string,
@@ -969,12 +1132,98 @@ export type AppointmentByUuidQuery = {
       day?: string | null,
       hour?: string | null,
       uuid?: string | null,
-      email?: string | null,
-      firstName?: string | null,
-      lastName?: string | null,
+      isTaken?: string | null,
       experimentId?: string | null,
       createdAt: string,
       updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetByStatusQueryVariables = {
+  status?: string | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelAppointmentTakenFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type GetByStatusQuery = {
+  getByStatus?:  {
+    __typename: "ModelAppointmentTakenConnection",
+    items?:  Array< {
+      __typename: "AppointmentTaken",
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName?: string | null,
+      lastName?: string | null,
+      experimentId: string,
+      status: string,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type AppointmentByDateAndExperimentQueryVariables = {
+  experimentId?: string | null,
+  dayHour?: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelAppointmentTakenFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type AppointmentByDateAndExperimentQuery = {
+  appointmentByDateAndExperiment?:  {
+    __typename: "ModelAppointmentTakenConnection",
+    items?:  Array< {
+      __typename: "AppointmentTaken",
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName?: string | null,
+      lastName?: string | null,
+      experimentId: string,
+      status: string,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetByUuidQueryVariables = {
+  uuid?: string | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelAppointmentTakenFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type GetByUuidQuery = {
+  getByUuid?:  {
+    __typename: "ModelAppointmentTakenConnection",
+    items?:  Array< {
+      __typename: "AppointmentTaken",
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName?: string | null,
+      lastName?: string | null,
+      experimentId: string,
+      status: string,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -1001,6 +1250,8 @@ export type SubjectByIdQuery = {
         firstName?: string | null,
         lastName?: string | null,
       } | null > | null,
+      periodBlock: string,
+      university: string,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -1090,9 +1341,7 @@ export type OnCreateAppointmentSubscription = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
@@ -1106,9 +1355,7 @@ export type OnUpdateAppointmentSubscription = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
@@ -1122,12 +1369,61 @@ export type OnDeleteAppointmentSubscription = {
     day?: string | null,
     hour?: string | null,
     uuid?: string | null,
-    email?: string | null,
-    firstName?: string | null,
-    lastName?: string | null,
+    isTaken?: string | null,
     experimentId?: string | null,
     createdAt: string,
     updatedAt: string,
+  } | null,
+};
+
+export type OnCreateAppointmentTakenSubscription = {
+  onCreateAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnUpdateAppointmentTakenSubscription = {
+  onUpdateAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnDeleteAppointmentTakenSubscription = {
+  onDeleteAppointmentTaken?:  {
+    __typename: "AppointmentTaken",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName?: string | null,
+    lastName?: string | null,
+    experimentId: string,
+    status: string,
+    createdAt: string,
+    updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -1142,6 +1438,8 @@ export type OnCreateSubjectSubscription = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -1158,6 +1456,8 @@ export type OnUpdateSubjectSubscription = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -1174,6 +1474,8 @@ export type OnDeleteSubjectSubscription = {
       firstName?: string | null,
       lastName?: string | null,
     } | null > | null,
+    periodBlock: string,
+    university: string,
     createdAt: string,
     updatedAt: string,
   } | null,

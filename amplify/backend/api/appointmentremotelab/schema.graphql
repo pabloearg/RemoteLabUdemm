@@ -20,18 +20,32 @@ type AppointmentLocal {
 }
 
 type Appointment @model 
-  @key(fields: ["id","experimentId","day","hour"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
-  @key(fields: ["day","experimentId"], name: "appointmentByDatAndExperiment",  queryField: "appointmentByDayAndExperiment") 
-  @key(fields: ["uuid"],name: "appointmentByUuid",  queryField: "appointmentByUuid") 
-  @key( fields: ["email"]) {
+  # @key(fields: ["id","experimentId","day","isTaken"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
+  # @key(fields: ["id","experimentId","day","hour","isTaken"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
+  @key(fields: ["day","experimentId","isTaken"], name: "appointmentByDayAndExperiment",  queryField: "appointmentByDayAndExperiment") 
+  @key(fields: ["uuid"],name: "appointmentByUuid",  queryField: "appointmentByUuid") {
   id:ID!
   day: String
   hour: String
   uuid: String
-  email: String
+  isTaken: String
+  experimentId: String
+}
+
+type AppointmentTaken @model 
+  @auth(rules: [{ allow: owner, operations: [create, delete, update] }])
+  @key( fields: ["email"])
+  @key(fields: ["status"], name: "getByStatus",  queryField: "getByStatus") 
+  @key(fields: ["experimentId","day","hour"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
+  @key(fields: ["uuid" ], name: "getByUuid", queryField: "getByUuid")  {
+  email: String!
+  day: String!
+  hour: String!
+  uuid: String!
   firstName: String
   lastName: String
-  experimentId: String
+  experimentId: String!
+  status: String!
 }
 
 type Subject @model 

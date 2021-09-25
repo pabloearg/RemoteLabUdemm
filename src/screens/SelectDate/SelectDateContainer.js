@@ -41,7 +41,7 @@ const SelectDateContainer = ({
   const getEmptyAppointments = async (day = 7) => {
     try {
       const exactDay = moment().add('days', dayCounter).format('yyyy-MM-DD');
-      const response = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment.uuid);
+      const response = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment.uuid, '');
       let appointmentsItems = response?.data?.appointmentByDayAndExperiment?.items;
       if (appointmentsItems.length === 0 && dayCounter <= 14) {
         dayCounter += 1;

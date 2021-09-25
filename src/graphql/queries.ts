@@ -64,9 +64,7 @@ export const getAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
@@ -85,12 +83,59 @@ export const listAppointments = /* GraphQL */ `
         day
         hour
         uuid
-        email
-        firstName
-        lastName
+        isTaken
         experimentId
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getAppointmentTaken = /* GraphQL */ `
+  query GetAppointmentTaken($email: String!) {
+    getAppointmentTaken(email: $email) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listAppointmentTakens = /* GraphQL */ `
+  query ListAppointmentTakens(
+    $email: String
+    $filter: ModelAppointmentTakenFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listAppointmentTakens(
+      email: $email
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
       }
       nextToken
     }
@@ -106,6 +151,8 @@ export const getSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }
@@ -126,6 +173,8 @@ export const listSubjects = /* GraphQL */ `
           firstName
           lastName
         }
+        periodBlock
+        university
         createdAt
         updatedAt
       }
@@ -207,43 +256,10 @@ export const userByEmail = /* GraphQL */ `
     }
   }
 `;
-export const appointmentByDateAndExperiment = /* GraphQL */ `
-  query AppointmentByDateAndExperiment(
-    $id: ID
-    $experimentIdDayHour: ModelAppointmentAppointmentByDateAndExperimentCompositeKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelAppointmentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    appointmentByDateAndExperiment(
-      id: $id
-      experimentIdDayHour: $experimentIdDayHour
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        day
-        hour
-        uuid
-        email
-        firstName
-        lastName
-        experimentId
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const appointmentByDayAndExperiment = /* GraphQL */ `
   query AppointmentByDayAndExperiment(
     $day: String
-    $experimentId: ModelStringKeyConditionInput
+    $experimentIdIsTaken: ModelAppointmentAppointmentByDayAndExperimentCompositeKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelAppointmentFilterInput
     $limit: Int
@@ -251,7 +267,7 @@ export const appointmentByDayAndExperiment = /* GraphQL */ `
   ) {
     appointmentByDayAndExperiment(
       day: $day
-      experimentId: $experimentId
+      experimentIdIsTaken: $experimentIdIsTaken
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
@@ -262,9 +278,7 @@ export const appointmentByDayAndExperiment = /* GraphQL */ `
         day
         hour
         uuid
-        email
-        firstName
-        lastName
+        isTaken
         experimentId
         createdAt
         updatedAt
@@ -293,12 +307,108 @@ export const appointmentByUuid = /* GraphQL */ `
         day
         hour
         uuid
-        email
-        firstName
-        lastName
+        isTaken
         experimentId
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getByStatus = /* GraphQL */ `
+  query GetByStatus(
+    $status: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentTakenFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getByStatus(
+      status: $status
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const appointmentByDateAndExperiment = /* GraphQL */ `
+  query AppointmentByDateAndExperiment(
+    $experimentId: String
+    $dayHour: ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentTakenFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    appointmentByDateAndExperiment(
+      experimentId: $experimentId
+      dayHour: $dayHour
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getByUuid = /* GraphQL */ `
+  query GetByUuid(
+    $uuid: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentTakenFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getByUuid(
+      uuid: $uuid
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
       }
       nextToken
     }
@@ -327,6 +437,8 @@ export const subjectById = /* GraphQL */ `
           firstName
           lastName
         }
+        periodBlock
+        university
         createdAt
         updatedAt
       }

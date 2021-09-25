@@ -81,9 +81,7 @@ export const onCreateAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
@@ -97,9 +95,7 @@ export const onUpdateAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
@@ -113,12 +109,61 @@ export const onDeleteAppointment = /* GraphQL */ `
       day
       hour
       uuid
-      email
-      firstName
-      lastName
+      isTaken
       experimentId
       createdAt
       updatedAt
+    }
+  }
+`;
+export const onCreateAppointmentTaken = /* GraphQL */ `
+  subscription OnCreateAppointmentTaken {
+    onCreateAppointmentTaken {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateAppointmentTaken = /* GraphQL */ `
+  subscription OnUpdateAppointmentTaken {
+    onUpdateAppointmentTaken {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteAppointmentTaken = /* GraphQL */ `
+  subscription OnDeleteAppointmentTaken {
+    onDeleteAppointmentTaken {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
     }
   }
 `;
@@ -132,6 +177,8 @@ export const onCreateSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }
@@ -147,6 +194,8 @@ export const onUpdateSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }
@@ -162,6 +211,8 @@ export const onDeleteSubject = /* GraphQL */ `
         firstName
         lastName
       }
+      periodBlock
+      university
       createdAt
       updatedAt
     }
