@@ -1,6 +1,6 @@
 {
     "identityPoolName": "appointmentremotelab303630a6_identitypool_303630a6",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "appoin303630a6",
     "userPoolName": "appointmentremotelab303630a6_userpool_303630a6",
     "autoVerifiedAttributes": [
