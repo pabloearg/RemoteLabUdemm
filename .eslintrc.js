@@ -42,7 +42,8 @@ module.exports = {
     'no-useless-escape': 'off',
     'no-return-await': 'off',
     'react/jsx-filename-extension': 'off',
-    'react/static-property-placement': 'off'
+    'react/static-property-placement': 'off',
+    'linebreak-style': ['error', 'windows']
   },
   globals: {
     fetch: false

@@ -9,25 +9,8 @@
       "UnauthRoleName": "amplify-appointmentremotelab-dev-172430-unauthRole",
       "StackName": "amplify-appointmentremotelab-dev-172430",
       "StackId": "arn:aws:cloudformation:us-east-1:044303538011:stack/amplify-appointmentremotelab-dev-172430/7202b770-1407-11ec-91bb-0aad277d2d75",
-      "AmplifyAppId": "d1n5mun37k7qp2"
-    },
-    "categories": {
-      "auth": {
-        "appointmentremotelab303630a6": {}
-      },
-      "notifications": {
-        "Pinpoint": {
-          "Name": "AppointmentRemoteLabbiuHq-dev",
-          "Id": "6daa3a909f0f492ca0de246d9e893038",
-          "Region": "us-east-1"
-        }
-      },
-      "function": {
-        "createAppointment": {
-          "deploymentBucketName": "amplify-appointmentremotelab-dev-172430-deployment",
-          "s3Key": "amplify-builds/createAppointment-583047786b3472787237-build.zip"
-        }
-      }
+      "AmplifyAppId": "d1n5mun37k7qp2",
+      "AuthTriggerTemplateURL": ""
     }
   }
 }
