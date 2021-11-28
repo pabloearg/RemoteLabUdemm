@@ -2,6 +2,8 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:flowtype/recommended',
+    'plugin:import/typescript',
+    'airbnb-typescript/base',
   ],
   plugins: [
     'flowtype',
@@ -43,17 +45,49 @@ module.exports = {
     'no-return-await': 'off',
     'react/jsx-filename-extension': 'off',
     'react/static-property-placement': 'off',
-    'linebreak-style': ['error', 'windows']
+    'react/jsx-filename-extension': 'off',
+    'react/static-property-placement': 'off',
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
+    '@typescript-eslint/semi': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/quotes': 'off',
+    'import/no-named-as-default': 'off',
+    '@typescript-eslint/space-infix-ops': 'off',
+    '@typescript-eslint/indent': 'off',
+    'import/extensions': 'off',
+    '@typescript-eslint/naming-convention': 'off',
+    'key-spacing': 'off',
+    'no-dupe-keys': 'off',
+    'linebreak-style': ['error', 'windows'],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
   globals: {
     fetch: false
   },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    project: './tsconfig.json', // Required for Standard plugin
+  },
   settings: {
     'import/resolver': 'react-native',
-    'import/extensions': [
-      '.js',
-      '.jsx'
-    ],
+    'import/extensions': ['.android.js', '.ios.js', '.js', '.jsx', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     flowtype: {
       onlyFilesWithFlowAnnotation: false,
     },

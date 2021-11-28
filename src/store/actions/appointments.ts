@@ -4,19 +4,22 @@ import { initialState } from '../initialState';
 import * as types from '../types';
 
 export const appointmentActions = {
-  getNewUserAppointments: (user) => ((dispatch) => (
+  getNewUserAppointments: (user, appointments, oldAppointments) => ((dispatch) => (
     new Promise((resolve, reject) => {
-      AppointmentApi.getAppointmentsByUser(user)
-        .then((appointmentResponse) => {
-          console.log({ appointmentResponse });
-          const appointments = appointmentResponse?.data;
-          console.log({ appointments });
-          dispatch({ type: types.GET_CURRENT_APPOINTMENTS_SUCCESS, appointments });
-          resolve();
-        })
-        .catch((error) => {
-          reject(error);
-        });
+
+      dispatch({ type: types.GET_CURRENT_APPOINTMENTS_SUCCESS, appointments, oldAppointments });
+      resolve();
+      // AppointmentApi.getAppointmentsByUser(user)
+      //   .then((appointmentResponse) => {
+      //     console.log({ appointmentResponse });
+      //     const appointments = appointmentResponse?.data;
+      //     console.log({ appointments });
+      //     dispatch({ type: types.GET_CURRENT_APPOINTMENTS_SUCCESS, appointments });
+      //     resolve();
+      //   })
+      //   .catch((error) => {
+      //     reject(error);
+      //   });
     })
   )),
   getAppointmentsByExperimentIdAndDay: (day, experimentId,) => ((dispatch) => (

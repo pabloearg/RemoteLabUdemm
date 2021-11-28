@@ -14,9 +14,9 @@ import { styles } from './styles';
 
 const ConfirmAppointmentContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const user: User = useSelector((state) => state?.user);
-  const experiments = useSelector((state) => state?.config?.experiments);
-  const { params } = useRoute();
+  const user: User = useSelector((state: any) => state?.user);
+  const experiments = useSelector((state: any) => state?.config?.experiments);
+  const { params }: { params: any } = useRoute();
 
   const appointment: AppointmentType = params?.appointment;
   const experiment: Experiment = experiments[appointment?.experimentId];

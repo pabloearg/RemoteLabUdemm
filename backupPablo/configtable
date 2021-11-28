@@ -1,0 +1,185 @@
+{
+  "id": "experiments",
+  "__typename": "Config",
+  "createdAt": "2021-09-18T18:41:30.690Z",
+  "experiments": [
+    {
+      "name": "Caída Libre",
+      "uuid": "1",
+      "iconUrl": "http://remotelab.com.ar/content/images/arbol.png"
+    },
+    {
+      "name": "Plano Inclinado",
+      "uuid": "2",
+      "iconUrl": "http://remotelab.com.ar/content/images/pelota_plano_inclinado.png"
+    },
+    {
+      "name": "Kirchoff",
+      "uuid": "3",
+      "iconUrl": "http://remotelab.com.ar/content/images/kirchoff.png"
+    },
+    {
+      "name": "Capacitor",
+      "uuid": "4",
+      "iconUrl": "http://remotelab.com.ar/content/images/cargaCapacitor.png"
+    }
+  ],
+  "updatedAt": "2021-09-18T18:41:30.690Z"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "id": {
+    "S": "experiments"
+  },
+  "__typename": {
+    "S": "Config"
+  },
+  "createdAt": {
+    "S": "2021-09-18T18:41:30.690Z"
+  },
+  "experiments": {
+    "L": [
+      {
+        "M": {
+          "name": {
+            "S": "Caída Libre"
+          },
+          "uuid": {
+            "S": "1"
+          },
+          "iconUrl": {
+            "S": "http://remotelab.com.ar/content/images/arbol.png"
+          }
+        }
+      },
+      {
+        "M": {
+          "name": {
+            "S": "Plano Inclinado"
+          },
+          "uuid": {
+            "S": "2"
+          },
+          "iconUrl": {
+            "S": "http://remotelab.com.ar/content/images/pelota_plano_inclinado.png"
+          }
+        }
+      },
+      {
+        "M": {
+          "name": {
+            "S": "Kirchoff"
+          },
+          "uuid": {
+            "S": "3"
+          },
+          "iconUrl": {
+            "S": "http://remotelab.com.ar/content/images/kirchoff.png"
+          }
+        }
+      },
+      {
+        "M": {
+          "name": {
+            "S": "Capacitor"
+          },
+          "uuid": {
+            "S": "4"
+          },
+          "iconUrl": {
+            "S": "http://remotelab.com.ar/content/images/cargaCapacitor.png"
+          }
+        }
+      }
+    ]
+  },
+  "updatedAt": {
+    "S": "2021-09-18T18:41:30.690Z"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {
+  "id": {
+    "S": "pabloearg@gmail.com"
+  },
+  "__typename": {
+    "S": "User"
+  },
+  "lastName": {
+    "S": "Arguimbau"
+  },
+  "classes": {
+    "L": []
+  },
+  "filedId": {
+    "S": "19045"
+  },
+  "createdAt": {
+    "S": "2021-09-13T03:39:45.257Z"
+  },
+  "email": {
+    "S": "pabloearg@gmail.com"
+  },
+  "firstName": {
+    "S": "Pablo"
+  },
+  "updatedAt": {
+    "S": "2021-09-13T03:39:45.257Z"
+  },
+  "quantityViolations": {
+    "N": "0"
+  },
+  "cleanDate": {
+    "NULL": true
+  },
+  "type": {
+    "S": "student"
+  }
+}
+
+
+
+
+
+{
+  "id": "pabloearg@gmail.com",
+  "__typename": "User",
+  "lastName": "Arguimbau",
+  "classes": [],
+  "filedId": "19045",
+  "createdAt": "2021-09-13T03:39:45.257Z",
+  "email": "pabloearg@gmail.com",
+  "firstName": "Pablo",
+  "updatedAt": "2021-09-13T03:39:45.257Z",
+  "quantityViolations": 0,
+  "cleanDate": null,
+  "type": "student"
+}

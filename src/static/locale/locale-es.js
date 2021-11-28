@@ -14,4 +14,5 @@ export default {
 
   CONFIRM_APPOINTMENT_TITLE: 'Confirme su turno',
   CONFIRM_APPOINTMENT_SUBMIT: 'CONFIRMAR',
+  APPOINTMENT_DETAIL_TITLE: 'Detalles del turno',
 };

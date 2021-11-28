@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
   package="com.remotelabudemm">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -47,4 +48,5 @@
         </intent-filter>
       </activity>
     </application>
+<!--    <uses-permission tools:node="remove" android:name="android.permission.WRITE_CALENDAR" />-->
 </manifest>

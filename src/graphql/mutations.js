@@ -1,5 +1,4 @@
-/* tslint:disable */
-/* eslint-disable */
+// @flow
 // this is an auto generated file. This will be overwritten
 
 export const createUserRL = /* GraphQL */ `

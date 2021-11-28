@@ -1,16 +1,20 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-appointmentremotelab-dev-172430-authRole",
-      "UnauthRoleArn": "arn:aws:iam::044303538011:role/amplify-appointmentremotelab-dev-172430-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::044303538011:role/amplify-appointmentremotelab-dev-172430-authRole",
+      "AuthRoleName": "amplify-remotelab-dev-172634-authRole",
+      "UnauthRoleArn": "arn:aws:iam::044303538011:role/amplify-remotelab-dev-172634-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::044303538011:role/amplify-remotelab-dev-172634-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-appointmentremotelab-dev-172430-deployment",
-      "UnauthRoleName": "amplify-appointmentremotelab-dev-172430-unauthRole",
-      "StackName": "amplify-appointmentremotelab-dev-172430",
-      "StackId": "arn:aws:cloudformation:us-east-1:044303538011:stack/amplify-appointmentremotelab-dev-172430/7202b770-1407-11ec-91bb-0aad277d2d75",
-      "AmplifyAppId": "d1n5mun37k7qp2",
-      "AuthTriggerTemplateURL": ""
+      "DeploymentBucketName": "amplify-remotelab-dev-172634-deployment",
+      "UnauthRoleName": "amplify-remotelab-dev-172634-unauthRole",
+      "StackName": "amplify-remotelab-dev-172634",
+      "StackId": "arn:aws:cloudformation:us-east-1:044303538011:stack/amplify-remotelab-dev-172634/53045230-4fc0-11ec-9429-0e774d02f957",
+      "AmplifyAppId": "d3nq6vcpeuu9zh"
+    },
+    "categories": {
+      "auth": {
+        "remotelab3c93ebbe": {}
+      }
     }
   }
 }

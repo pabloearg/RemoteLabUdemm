@@ -15,6 +15,7 @@ import AddIcon from '../Components/AddIcon/AddIcon';
 import LogoutButton from '../Components/buttons/LogoutButton/LogoutButton';
 import SelectExperiment from './SelectExperiment/SelectExperiment';
 import SelectDate from './SelectDate';
+import AppointmentDetail from './AppointmentDetail';
 // import Home from '../Navigators/Home';
 
 const Screens: {
@@ -51,27 +52,32 @@ const Screens: {
   [ScreensNames.PREVIOUS_APPOINTMENT]: {
     name: ScreensNames.PREVIOUS_APPOINTMENT,
     component: PreviousAppointments,
-    options: { title: getString(translateEnum.INTRO_APPOINTMENT_PREVIOUS) }
+    options: { title: getString(translateEnum.INTRO_APPOINTMENT_PREVIOUS), ...colorHeaderStyle }
   },
   [ScreensNames.NEXT_APPOINTMENT]: {
     name: ScreensNames.NEXT_APPOINTMENT,
     component: NextAppointments,
-    options: { title: getString(translateEnum.INTRO_APPOINTMENT_NEXT) }
+    options: { title: getString(translateEnum.INTRO_APPOINTMENT_NEXT), ...colorHeaderStyle }
   },
   [ScreensNames.SELECT_EXPERIMENT]: {
     name: ScreensNames.SELECT_EXPERIMENT,
     component: SelectExperiment,
-    options: { title: getString(translateEnum.SELECT_EXPERIMENT_TITLE) }
+    options: { title: getString(translateEnum.SELECT_EXPERIMENT_TITLE), ...colorHeaderStyle }
   },
   [ScreensNames.SELECT_DATE]: {
     name: ScreensNames.SELECT_DATE,
     component: SelectDate,
-    options: { title: getString(translateEnum.SELECT_DATE_TITLE) }
+    options: { title: getString(translateEnum.SELECT_DATE_TITLE), ...colorHeaderStyle }
   },
   [ScreensNames.CONFIRM_APPOINTMENT]: {
     name: ScreensNames.CONFIRM_APPOINTMENT,
     component: ConfirmAppointment,
     options: { title: getString(translateEnum.CONFIRM_APPOINTMENT_TITLE) }
+  },
+  [ScreensNames.APPOINTMENT_DETAIL]: {
+    name: ScreensNames.APPOINTMENT_DETAIL,
+    component: AppointmentDetail,
+    options: { title: getString(translateEnum.APPOINTMENT_DETAIL_TITLE), ...colorHeaderStyle }
   },
 };
 

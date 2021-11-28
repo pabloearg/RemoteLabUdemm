@@ -8,7 +8,7 @@ export const configActions = {
   getConfig: () => ((dispatch) => (
     new Promise((resolve, reject) => {
       AppointmentApi.getExperiments().then((experimentsData) => {
-        const experimentsArray = experimentsData?.data?.getConfig?.experiments ?? [];
+        const experimentsArray = experimentsData?.data?.getConfigRL?.experiments ?? [];
         const experiments = convertExperimentArray(experimentsArray);
         dispatch({ type: types.GET_CONFIG_SUCCESS, experimentsArray, experiments });
         resolve(experimentsArray);

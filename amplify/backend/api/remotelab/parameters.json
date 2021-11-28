@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "remotelab",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authremotelab3c93ebbe",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

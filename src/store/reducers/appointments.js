@@ -8,7 +8,8 @@ export default (state = initialState.appointments, action) => {
     case types.GET_CURRENT_APPOINTMENTS_SUCCESS:
       return {
         ...state,
-        currentAppointments: { ...action.appointments }
+        currentAppointments: { ...action.appointments },
+        oldAppointments: { ...action.oldAppointments }
       };
     case types.ADD_APPOINTMENTS_SUCCESS:
       return state;

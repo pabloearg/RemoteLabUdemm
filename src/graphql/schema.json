@@ -15,7 +15,7 @@
         "name" : "Query",
         "description" : null,
         "fields" : [ {
-          "name" : "getUser",
+          "name" : "getUserRL",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -33,20 +33,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listUsers",
+          "name" : "listUserRLs",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserFilterInput",
+              "name" : "ModelUserRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -71,13 +71,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelUserConnection",
+            "name" : "ModelUserRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getAppointment",
+          "name" : "getAppointmentRL",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -95,20 +95,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listAppointments",
+          "name" : "listAppointmentRLs",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentFilterInput",
+              "name" : "ModelAppointmentRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -133,13 +133,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentConnection",
+            "name" : "ModelAppointmentRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getAppointmentTaken",
+          "name" : "getAppointmentTakenRL",
           "description" : null,
           "args" : [ {
             "name" : "email",
@@ -157,13 +157,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listAppointmentTakens",
+          "name" : "listAppointmentTakenRLs",
           "description" : null,
           "args" : [ {
             "name" : "email",
@@ -179,7 +179,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenFilterInput",
+              "name" : "ModelAppointmentTakenRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -213,13 +213,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentTakenConnection",
+            "name" : "ModelAppointmentTakenRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getSubject",
+          "name" : "getSubjectRL",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -237,20 +237,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listSubjects",
+          "name" : "listSubjectRLs",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectFilterInput",
+              "name" : "ModelSubjectRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -275,13 +275,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSubjectConnection",
+            "name" : "ModelSubjectRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getConfig",
+          "name" : "getConfigRL",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -299,20 +299,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listConfigs",
+          "name" : "listConfigRLs",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigFilterInput",
+              "name" : "ModelConfigRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -337,7 +337,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelConfigConnection",
+            "name" : "ModelConfigRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -368,7 +368,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserFilterInput",
+              "name" : "ModelUserRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -393,13 +393,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelUserConnection",
+            "name" : "ModelUserRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "appointmentByDayAndExperiment",
+          "name" : "appointmentByDayAndExperimentUserless",
           "description" : null,
           "args" : [ {
             "name" : "day",
@@ -415,7 +415,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyConditionInput",
+              "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -433,7 +433,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentFilterInput",
+              "name" : "ModelAppointmentRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -458,13 +458,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentConnection",
+            "name" : "ModelAppointmentRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "appointmentByUuid",
+          "name" : "appointmentByUuidUserless",
           "description" : null,
           "args" : [ {
             "name" : "uuid",
@@ -489,7 +489,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentFilterInput",
+              "name" : "ModelAppointmentRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -514,7 +514,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentConnection",
+            "name" : "ModelAppointmentRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -545,7 +545,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenFilterInput",
+              "name" : "ModelAppointmentTakenRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -570,7 +570,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentTakenConnection",
+            "name" : "ModelAppointmentTakenRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -592,7 +592,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyConditionInput",
+              "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -610,7 +610,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenFilterInput",
+              "name" : "ModelAppointmentTakenRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -635,7 +635,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentTakenConnection",
+            "name" : "ModelAppointmentTakenRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -666,7 +666,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenFilterInput",
+              "name" : "ModelAppointmentTakenRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -691,7 +691,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelAppointmentTakenConnection",
+            "name" : "ModelAppointmentTakenRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -722,7 +722,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectFilterInput",
+              "name" : "ModelSubjectRLFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -747,7 +747,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSubjectConnection",
+            "name" : "ModelSubjectRLConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -759,7 +759,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "User",
+        "name" : "UserRL",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1054,19 +1054,27 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelUserConnection",
+        "name" : "ModelUserRLConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "LIST",
+            "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "User",
-              "ofType" : null
+              "kind" : "LIST",
+              "name" : null,
+              "ofType" : {
+                "kind" : "NON_NULL",
+                "name" : null,
+                "ofType" : {
+                  "kind" : "OBJECT",
+                  "name" : "UserRL",
+                  "ofType" : null
+                }
+              }
             }
           },
           "isDeprecated" : false,
@@ -1089,7 +1097,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelUserFilterInput",
+        "name" : "ModelUserRLFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1172,7 +1180,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserFilterInput",
+              "name" : "ModelUserRLFilterInput",
               "ofType" : null
             }
           },
@@ -1185,7 +1193,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserFilterInput",
+              "name" : "ModelUserRLFilterInput",
               "ofType" : null
             }
           },
@@ -1195,7 +1203,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelUserFilterInput",
+            "name" : "ModelUserRLFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1573,7 +1581,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Appointment",
+        "name" : "AppointmentRL",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1682,19 +1690,27 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelAppointmentConnection",
+        "name" : "ModelAppointmentRLConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "LIST",
+            "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "Appointment",
-              "ofType" : null
+              "kind" : "LIST",
+              "name" : null,
+              "ofType" : {
+                "kind" : "NON_NULL",
+                "name" : null,
+                "ofType" : {
+                  "kind" : "OBJECT",
+                  "name" : "AppointmentRL",
+                  "ofType" : null
+                }
+              }
             }
           },
           "isDeprecated" : false,
@@ -1717,7 +1733,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentFilterInput",
+        "name" : "ModelAppointmentRLFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1782,7 +1798,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentFilterInput",
+              "name" : "ModelAppointmentRLFilterInput",
               "ofType" : null
             }
           },
@@ -1795,7 +1811,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentFilterInput",
+              "name" : "ModelAppointmentRLFilterInput",
               "ofType" : null
             }
           },
@@ -1805,7 +1821,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentFilterInput",
+            "name" : "ModelAppointmentRLFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1945,7 +1961,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "AppointmentTaken",
+        "name" : "AppointmentTakenRL",
         "description" : null,
         "fields" : [ {
           "name" : "email",
@@ -2107,19 +2123,27 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelAppointmentTakenConnection",
+        "name" : "ModelAppointmentTakenRLConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "LIST",
+            "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "AppointmentTaken",
-              "ofType" : null
+              "kind" : "LIST",
+              "name" : null,
+              "ofType" : {
+                "kind" : "NON_NULL",
+                "name" : null,
+                "ofType" : {
+                  "kind" : "OBJECT",
+                  "name" : "AppointmentTakenRL",
+                  "ofType" : null
+                }
+              }
             }
           },
           "isDeprecated" : false,
@@ -2142,7 +2166,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentTakenFilterInput",
+        "name" : "ModelAppointmentTakenRLFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2225,7 +2249,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenFilterInput",
+              "name" : "ModelAppointmentTakenRLFilterInput",
               "ofType" : null
             }
           },
@@ -2238,7 +2262,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenFilterInput",
+              "name" : "ModelAppointmentTakenRLFilterInput",
               "ofType" : null
             }
           },
@@ -2248,7 +2272,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenFilterInput",
+            "name" : "ModelAppointmentTakenRLFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2277,7 +2301,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Subject",
+        "name" : "SubjectRL",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -2433,19 +2457,27 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelSubjectConnection",
+        "name" : "ModelSubjectRLConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "LIST",
+            "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "Subject",
-              "ofType" : null
+              "kind" : "LIST",
+              "name" : null,
+              "ofType" : {
+                "kind" : "NON_NULL",
+                "name" : null,
+                "ofType" : {
+                  "kind" : "OBJECT",
+                  "name" : "SubjectRL",
+                  "ofType" : null
+                }
+              }
             }
           },
           "isDeprecated" : false,
@@ -2468,7 +2500,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelSubjectFilterInput",
+        "name" : "ModelSubjectRLFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2515,7 +2547,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectFilterInput",
+              "name" : "ModelSubjectRLFilterInput",
               "ofType" : null
             }
           },
@@ -2528,7 +2560,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectFilterInput",
+              "name" : "ModelSubjectRLFilterInput",
               "ofType" : null
             }
           },
@@ -2538,7 +2570,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelSubjectFilterInput",
+            "name" : "ModelSubjectRLFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2548,7 +2580,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Config",
+        "name" : "ConfigRL",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -2667,19 +2699,27 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelConfigConnection",
+        "name" : "ModelConfigRLConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "LIST",
+            "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "Config",
-              "ofType" : null
+              "kind" : "LIST",
+              "name" : null,
+              "ofType" : {
+                "kind" : "NON_NULL",
+                "name" : null,
+                "ofType" : {
+                  "kind" : "OBJECT",
+                  "name" : "ConfigRL",
+                  "ofType" : null
+                }
+              }
             }
           },
           "isDeprecated" : false,
@@ -2702,7 +2742,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelConfigFilterInput",
+        "name" : "ModelConfigRLFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2713,7 +2753,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigFilterInput",
+              "name" : "ModelConfigRLFilterInput",
               "ofType" : null
             }
           },
@@ -2726,7 +2766,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigFilterInput",
+              "name" : "ModelConfigRLFilterInput",
               "ofType" : null
             }
           },
@@ -2736,7 +2776,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelConfigFilterInput",
+            "name" : "ModelConfigRLFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2746,7 +2786,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyConditionInput",
+        "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2754,7 +2794,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2763,7 +2803,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2772,7 +2812,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2781,7 +2821,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2790,7 +2830,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2802,7 +2842,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+              "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
               "ofType" : null
             }
           },
@@ -2812,7 +2852,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2822,7 +2862,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentAppointmentByDayAndExperimentCompositeKeyInput",
+        "name" : "ModelAppointmentRLAppointmentByDayAndExperimentUserlessCompositeKeyInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2849,7 +2889,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyConditionInput",
+        "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2857,7 +2897,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2866,7 +2906,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2875,7 +2915,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2884,7 +2924,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2893,7 +2933,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2905,7 +2945,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+              "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
               "ofType" : null
             }
           },
@@ -2915,7 +2955,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+            "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2925,7 +2965,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentTakenAppointmentByDateAndExperimentCompositeKeyInput",
+        "name" : "ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2955,7 +2995,7 @@
         "name" : "Mutation",
         "description" : null,
         "fields" : [ {
-          "name" : "createUser",
+          "name" : "createUserRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2965,7 +3005,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateUserInput",
+                "name" : "CreateUserRLInput",
                 "ofType" : null
               }
             },
@@ -2975,20 +3015,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
+              "name" : "ModelUserRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateUser",
+          "name" : "updateUserRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2998,7 +3038,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateUserInput",
+                "name" : "UpdateUserRLInput",
                 "ofType" : null
               }
             },
@@ -3008,20 +3048,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
+              "name" : "ModelUserRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteUser",
+          "name" : "deleteUserRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3031,7 +3071,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteUserInput",
+                "name" : "DeleteUserRLInput",
                 "ofType" : null
               }
             },
@@ -3041,20 +3081,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
+              "name" : "ModelUserRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createAppointment",
+          "name" : "createAppointmentRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3064,7 +3104,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateAppointmentInput",
+                "name" : "CreateAppointmentRLInput",
                 "ofType" : null
               }
             },
@@ -3074,20 +3114,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentConditionInput",
+              "name" : "ModelAppointmentRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateAppointment",
+          "name" : "updateAppointmentRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3097,7 +3137,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateAppointmentInput",
+                "name" : "UpdateAppointmentRLInput",
                 "ofType" : null
               }
             },
@@ -3107,20 +3147,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentConditionInput",
+              "name" : "ModelAppointmentRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteAppointment",
+          "name" : "deleteAppointmentRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3130,7 +3170,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteAppointmentInput",
+                "name" : "DeleteAppointmentRLInput",
                 "ofType" : null
               }
             },
@@ -3140,20 +3180,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentConditionInput",
+              "name" : "ModelAppointmentRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createAppointmentTaken",
+          "name" : "createAppointmentTakenRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3163,7 +3203,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateAppointmentTakenInput",
+                "name" : "CreateAppointmentTakenRLInput",
                 "ofType" : null
               }
             },
@@ -3173,20 +3213,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenConditionInput",
+              "name" : "ModelAppointmentTakenRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateAppointmentTaken",
+          "name" : "updateAppointmentTakenRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3196,7 +3236,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateAppointmentTakenInput",
+                "name" : "UpdateAppointmentTakenRLInput",
                 "ofType" : null
               }
             },
@@ -3206,20 +3246,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenConditionInput",
+              "name" : "ModelAppointmentTakenRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteAppointmentTaken",
+          "name" : "deleteAppointmentTakenRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3229,7 +3269,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteAppointmentTakenInput",
+                "name" : "DeleteAppointmentTakenRLInput",
                 "ofType" : null
               }
             },
@@ -3239,20 +3279,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenConditionInput",
+              "name" : "ModelAppointmentTakenRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createSubject",
+          "name" : "createSubjectRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3262,7 +3302,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateSubjectInput",
+                "name" : "CreateSubjectRLInput",
                 "ofType" : null
               }
             },
@@ -3272,20 +3312,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectConditionInput",
+              "name" : "ModelSubjectRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateSubject",
+          "name" : "updateSubjectRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3295,7 +3335,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateSubjectInput",
+                "name" : "UpdateSubjectRLInput",
                 "ofType" : null
               }
             },
@@ -3305,20 +3345,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectConditionInput",
+              "name" : "ModelSubjectRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteSubject",
+          "name" : "deleteSubjectRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3328,7 +3368,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteSubjectInput",
+                "name" : "DeleteSubjectRLInput",
                 "ofType" : null
               }
             },
@@ -3338,20 +3378,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectConditionInput",
+              "name" : "ModelSubjectRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createConfig",
+          "name" : "createConfigRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3361,7 +3401,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateConfigInput",
+                "name" : "CreateConfigRLInput",
                 "ofType" : null
               }
             },
@@ -3371,20 +3411,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigConditionInput",
+              "name" : "ModelConfigRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateConfig",
+          "name" : "updateConfigRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3394,7 +3434,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateConfigInput",
+                "name" : "UpdateConfigRLInput",
                 "ofType" : null
               }
             },
@@ -3404,20 +3444,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigConditionInput",
+              "name" : "ModelConfigRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteConfig",
+          "name" : "deleteConfigRL",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3427,7 +3467,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteConfigInput",
+                "name" : "DeleteConfigRLInput",
                 "ofType" : null
               }
             },
@@ -3437,14 +3477,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigConditionInput",
+              "name" : "ModelConfigRLConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3456,7 +3496,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateUserInput",
+        "name" : "CreateUserRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3624,7 +3664,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelUserConditionInput",
+        "name" : "ModelUserRLConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3707,7 +3747,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
+              "name" : "ModelUserRLConditionInput",
               "ofType" : null
             }
           },
@@ -3720,7 +3760,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
+              "name" : "ModelUserRLConditionInput",
               "ofType" : null
             }
           },
@@ -3730,7 +3770,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelUserConditionInput",
+            "name" : "ModelUserRLConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3740,7 +3780,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateUserInput",
+        "name" : "UpdateUserRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3838,7 +3878,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteUserInput",
+        "name" : "DeleteUserRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3860,7 +3900,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateAppointmentInput",
+        "name" : "CreateAppointmentRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3923,7 +3963,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentConditionInput",
+        "name" : "ModelAppointmentRLConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3979,7 +4019,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentConditionInput",
+              "name" : "ModelAppointmentRLConditionInput",
               "ofType" : null
             }
           },
@@ -3992,7 +4032,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentConditionInput",
+              "name" : "ModelAppointmentRLConditionInput",
               "ofType" : null
             }
           },
@@ -4002,7 +4042,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentConditionInput",
+            "name" : "ModelAppointmentRLConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4012,7 +4052,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateAppointmentInput",
+        "name" : "UpdateAppointmentRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4079,7 +4119,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteAppointmentInput",
+        "name" : "DeleteAppointmentRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4101,7 +4141,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateAppointmentTakenInput",
+        "name" : "CreateAppointmentTakenRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4206,7 +4246,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelAppointmentTakenConditionInput",
+        "name" : "ModelAppointmentTakenRLConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4280,7 +4320,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenConditionInput",
+              "name" : "ModelAppointmentTakenRLConditionInput",
               "ofType" : null
             }
           },
@@ -4293,7 +4333,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelAppointmentTakenConditionInput",
+              "name" : "ModelAppointmentTakenRLConditionInput",
               "ofType" : null
             }
           },
@@ -4303,7 +4343,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelAppointmentTakenConditionInput",
+            "name" : "ModelAppointmentTakenRLConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4313,7 +4353,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateAppointmentTakenInput",
+        "name" : "UpdateAppointmentTakenRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4398,7 +4438,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteAppointmentTakenInput",
+        "name" : "DeleteAppointmentTakenRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4420,7 +4460,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateSubjectInput",
+        "name" : "CreateSubjectRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4526,7 +4566,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelSubjectConditionInput",
+        "name" : "ModelSubjectRLConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4564,7 +4604,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectConditionInput",
+              "name" : "ModelSubjectRLConditionInput",
               "ofType" : null
             }
           },
@@ -4577,7 +4617,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSubjectConditionInput",
+              "name" : "ModelSubjectRLConditionInput",
               "ofType" : null
             }
           },
@@ -4587,7 +4627,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelSubjectConditionInput",
+            "name" : "ModelSubjectRLConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4597,7 +4637,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateSubjectInput",
+        "name" : "UpdateSubjectRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4659,7 +4699,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteSubjectInput",
+        "name" : "DeleteSubjectRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4681,7 +4721,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateConfigInput",
+        "name" : "CreateConfigRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4756,7 +4796,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelConfigConditionInput",
+        "name" : "ModelConfigRLConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4767,7 +4807,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigConditionInput",
+              "name" : "ModelConfigRLConditionInput",
               "ofType" : null
             }
           },
@@ -4780,7 +4820,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelConfigConditionInput",
+              "name" : "ModelConfigRLConditionInput",
               "ofType" : null
             }
           },
@@ -4790,7 +4830,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelConfigConditionInput",
+            "name" : "ModelConfigRLConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4800,7 +4840,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateConfigInput",
+        "name" : "UpdateConfigRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4822,7 +4862,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteConfigInput",
+        "name" : "DeleteConfigRLInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4847,166 +4887,166 @@
         "name" : "Subscription",
         "description" : null,
         "fields" : [ {
-          "name" : "onCreateUser",
+          "name" : "onCreateUserRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateUser",
+          "name" : "onUpdateUserRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteUser",
+          "name" : "onDeleteUserRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "User",
+            "name" : "UserRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateAppointment",
+          "name" : "onCreateAppointmentRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateAppointment",
+          "name" : "onUpdateAppointmentRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteAppointment",
+          "name" : "onDeleteAppointmentRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Appointment",
+            "name" : "AppointmentRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateAppointmentTaken",
+          "name" : "onCreateAppointmentTakenRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateAppointmentTaken",
+          "name" : "onUpdateAppointmentTakenRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteAppointmentTaken",
+          "name" : "onDeleteAppointmentTakenRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "AppointmentTaken",
+            "name" : "AppointmentTakenRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateSubject",
+          "name" : "onCreateSubjectRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateSubject",
+          "name" : "onUpdateSubjectRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteSubject",
+          "name" : "onDeleteSubjectRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Subject",
+            "name" : "SubjectRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateConfig",
+          "name" : "onCreateConfigRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateConfig",
+          "name" : "onUpdateConfigRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteConfig",
+          "name" : "onDeleteConfigRL",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Config",
+            "name" : "ConfigRL",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -5948,12 +5988,12 @@
         "onFragment" : false,
         "onField" : true
       }, {
-        "name" : "aws_auth",
-        "description" : "Directs the schema to enforce authorization on a field",
+        "name" : "aws_subscribe",
+        "description" : "Tells the service which mutation triggers this subscription.",
         "locations" : [ "FIELD_DEFINITION" ],
         "args" : [ {
-          "name" : "cognito_groups",
-          "description" : "List of cognito user pool groups which have access on this field",
+          "name" : "mutations",
+          "description" : "List of mutations which will trigger this subscription when they are called.",
           "type" : {
             "kind" : "LIST",
             "name" : null,
@@ -5965,14 +6005,6 @@
           },
           "defaultValue" : null
         } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "aws_api_key",
-        "description" : "Tells the service this field/object has access authorized by an API key.",
-        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
-        "args" : [ ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
@@ -5983,27 +6015,6 @@
         "args" : [ {
           "name" : "cognito_groups",
           "description" : "List of cognito user pool groups which have access on this field",
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "aws_subscribe",
-        "description" : "Tells the service which mutation triggers this subscription.",
-        "locations" : [ "FIELD_DEFINITION" ],
-        "args" : [ {
-          "name" : "mutations",
-          "description" : "List of mutations which will trigger this subscription when they are called.",
           "type" : {
             "kind" : "LIST",
             "name" : null,
@@ -6032,6 +6043,22 @@
           },
           "defaultValue" : "\"No longer supported\""
         } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_api_key",
+        "description" : "Tells the service this field/object has access authorized by an API key.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_lambda",
+        "description" : "Tells the service this field/object has access authorized by a Lambda Authorizer.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
@@ -6073,10 +6100,23 @@
         "onFragment" : false,
         "onField" : false
       }, {
-        "name" : "aws_lambda",
-        "description" : "Tells the service this field/object has access authorized by a Lambda Authorizer.",
-        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
-        "args" : [ ],
+        "name" : "aws_auth",
+        "description" : "Directs the schema to enforce authorization on a field",
+        "locations" : [ "FIELD_DEFINITION" ],
+        "args" : [ {
+          "name" : "cognito_groups",
+          "description" : "List of cognito user pool groups which have access on this field",
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        } ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
