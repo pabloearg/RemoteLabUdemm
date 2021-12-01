@@ -193,6 +193,66 @@ export const deleteAppointmentTakenRL = /* GraphQL */ `
     }
   }
 `;
+export const createAppointmentStudentRL = /* GraphQL */ `
+  mutation CreateAppointmentStudentRL(
+    $input: CreateAppointmentStudentRLInput!
+    $condition: ModelAppointmentStudentRLConditionInput
+  ) {
+    createAppointmentStudentRL(input: $input, condition: $condition) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateAppointmentStudentRL = /* GraphQL */ `
+  mutation UpdateAppointmentStudentRL(
+    $input: UpdateAppointmentStudentRLInput!
+    $condition: ModelAppointmentStudentRLConditionInput
+  ) {
+    updateAppointmentStudentRL(input: $input, condition: $condition) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteAppointmentStudentRL = /* GraphQL */ `
+  mutation DeleteAppointmentStudentRL(
+    $input: DeleteAppointmentStudentRLInput!
+    $condition: ModelAppointmentStudentRLConditionInput
+  ) {
+    deleteAppointmentStudentRL(input: $input, condition: $condition) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const createSubjectRL = /* GraphQL */ `
   mutation CreateSubjectRL(
     $input: CreateSubjectRLInput!

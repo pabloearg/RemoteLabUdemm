@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import ButtonLarge from '../ButtonLarge/ButtonLarge';
 import Spinner from '../../Spinner/Spinner';
-import { ORANGE } from '../../../styles/colors';
+import { BLUE_HEADER, ORANGE } from '../../../styles/colors';
 
 type Props = {
   text: string,
@@ -49,7 +49,7 @@ const ButtonFooter = ({
       disabled={disabled || frozen}
       accessibilityLabel={btnAccessibilityLabel}
       style={[
-        { backgroundColor: buttonColor || ORANGE },
+        { backgroundColor: buttonColor || BLUE_HEADER },
         styles.button,
         disabled && styles.disabledButton,
         style]}
@@ -83,7 +83,7 @@ ButtonFooter.defaultProps = {
   styleContainer: undefined,
   secondButton: undefined,
   loadingType: 'large' || 'smal',
-  buttonColor: ORANGE,
+  buttonColor: BLUE_HEADER,
   opacityAnimation: 1,
 };
 

@@ -3,6 +3,7 @@ import {
   BLACK,
   ORANGE,
   DISABLED_GREY,
+  BLUE_HEADER,
 } from '../../../styles/colors';
 
 export const styles = StyleSheet.create({
@@ -26,6 +27,6 @@ export const styles = StyleSheet.create({
 
   },
   normal: {
-    backgroundColor: ORANGE,
+    backgroundColor: BLUE_HEADER,
   }
 });

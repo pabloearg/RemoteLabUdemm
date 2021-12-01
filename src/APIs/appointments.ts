@@ -1,7 +1,9 @@
 import { API, graphqlOperation } from 'aws-amplify';
 import {
   appointmentByDayAndExperimentUserless,
+  getAppointmentStudentRL,
   getAppointmentTakenRL,
+  listAppointmentStudentRLs,
   getConfigRL,
   getUserRL,
 
@@ -10,6 +12,8 @@ import {
 import {
   updateAppointmentRL,
   createAppointmentRL,
+  createAppointmentTakenRL,
+  createAppointmentStudentRL,
 } from '../graphql/mutations';
 import { AppointmentType } from '../types/tables';
 import { getAppointmentsArray } from '../utils/scripts';
@@ -21,26 +25,30 @@ class AppointmentApiClass {
     experimentId: string,
   ) => API.graphql(graphqlOperation(appointmentByDayAndExperimentUserless, {
     day,
-
-    experimentId: {
-      eq: experimentId,
+    experimentIdIsTaken: {
+      eq: {
+        experimentId: experimentId,
+        isTaken: "0",
+      }
     },
-    // isTaken: {
-    //   eq: false,
-    // },
   }))
 
   getAppointmentsByUser = (
     email: string,
-  ) => API.graphql(graphqlOperation(getAppointmentTakenRL, {
+  ) => API.graphql(graphqlOperation(listAppointmentStudentRLs, {
     email,
   }))
 
   getExperiments = () => API.graphql(graphqlOperation(getConfigRL, { id: 'experiments' }))
 
-  setAppointment = (appointment: any) => API.graphql(graphqlOperation(
+  setAppointmentIsTaken = (appointment: any) => API.graphql(graphqlOperation(
     updateAppointmentRL,
-    { input: { ...appointment } }
+    { input: { ...appointment, isTaken: "1" } }
+  ))
+
+  createUserAppointment = (appointment: any,) => API.graphql(graphqlOperation(
+    createAppointmentStudentRL,
+    { input: { ...appointment, } }
   ))
 
   getUser = (email = 'pabloearg@gmail.com') => API.graphql(graphqlOperation(getUserRL, { id: email }));

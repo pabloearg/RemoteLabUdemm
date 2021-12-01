@@ -72,7 +72,7 @@ const Screens: {
   [ScreensNames.CONFIRM_APPOINTMENT]: {
     name: ScreensNames.CONFIRM_APPOINTMENT,
     component: ConfirmAppointment,
-    options: { title: getString(translateEnum.CONFIRM_APPOINTMENT_TITLE) }
+    options: { title: getString(translateEnum.CONFIRM_APPOINTMENT_TITLE), ...colorHeaderStyle }
   },
   [ScreensNames.APPOINTMENT_DETAIL]: {
     name: ScreensNames.APPOINTMENT_DETAIL,

@@ -12,13 +12,13 @@ const selectDateStyles = StyleSheet.create({
   },
   iconLeft: {
     width: 42,
-    height: 24,
+    height: 42,
     transform: [{ rotateY: '180deg' }]
 
   },
   iconRight: {
     width: 42,
-    height: 24,
+    height: 42,
 
   },
   rowContainer: {
@@ -40,6 +40,9 @@ const selectDateStyles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
+  },
+  normalText: {
+    alignSelf: 'center', textAlign: 'center', marginTop: 15
   },
 });
 

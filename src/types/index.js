@@ -1,8 +1,8 @@
 // @flow
 type Experiment = {
-  id: string,
-  title: string,
-  icon: any
+  uuid: string,
+  name: string,
+  iconUrl:any,
 }
 
 type DateAppoinment = {

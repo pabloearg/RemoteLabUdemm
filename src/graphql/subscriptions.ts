@@ -167,6 +167,57 @@ export const onDeleteAppointmentTakenRL = /* GraphQL */ `
     }
   }
 `;
+export const onCreateAppointmentStudentRL = /* GraphQL */ `
+  subscription OnCreateAppointmentStudentRL {
+    onCreateAppointmentStudentRL {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateAppointmentStudentRL = /* GraphQL */ `
+  subscription OnUpdateAppointmentStudentRL {
+    onUpdateAppointmentStudentRL {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteAppointmentStudentRL = /* GraphQL */ `
+  subscription OnDeleteAppointmentStudentRL {
+    onDeleteAppointmentStudentRL {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const onCreateSubjectRL = /* GraphQL */ `
   subscription OnCreateSubjectRL {
     onCreateSubjectRL {

@@ -34,10 +34,26 @@ type AppointmentRL @model
 
 type AppointmentTakenRL @model 
   @auth(rules: [{ allow: owner, operations: [create, delete, update] }])
-  @key( fields: ["email"])
+  @key( fields: ["email",])
   @key(fields: ["status"], name: "getByStatus",  queryField: "getByStatus") 
   @key(fields: ["experimentId","day","hour"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 
   @key(fields: ["uuid" ], name: "getByUuid", queryField: "getByUuid")  {
+  email: String!
+  day: String!
+  hour: String!
+  uuid: String!
+  firstName: String
+  lastName: String
+  experimentId: String!
+  status: String!
+}
+
+type AppointmentStudentRL @model 
+  @auth(rules: [{ allow: owner, operations: [create, delete, update] }])
+  @key( fields: ["email","uuid"])
+  @key(fields: ["status"], name: "ByStatus",  queryField: "getAppointmentByStatus") 
+  @key(fields: ["experimentId","day","hour"], name: "ByDateAndExperiment",  queryField: "getAppointmentByDateAndExperiment") 
+  @key(fields: ["uuid" ], name: "ByUuid", queryField: "getAppointmentByUuid")  {
   email: String!
   day: String!
   hour: String!

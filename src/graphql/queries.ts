@@ -141,6 +141,57 @@ export const listAppointmentTakenRLs = /* GraphQL */ `
     }
   }
 `;
+export const getAppointmentStudentRL = /* GraphQL */ `
+  query GetAppointmentStudentRL($email: String!, $uuid: String!) {
+    getAppointmentStudentRL(email: $email, uuid: $uuid) {
+      email
+      day
+      hour
+      uuid
+      firstName
+      lastName
+      experimentId
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listAppointmentStudentRLs = /* GraphQL */ `
+  query ListAppointmentStudentRLs(
+    $email: String
+    $uuid: ModelStringKeyConditionInput
+    $filter: ModelAppointmentStudentRLFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listAppointmentStudentRLs(
+      email: $email
+      uuid: $uuid
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
 export const getSubjectRL = /* GraphQL */ `
   query GetSubjectRL($id: ID!) {
     getSubjectRL(id: $id) {
@@ -391,6 +442,104 @@ export const getByUuid = /* GraphQL */ `
     $nextToken: String
   ) {
     getByUuid(
+      uuid: $uuid
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getAppointmentByStatus = /* GraphQL */ `
+  query GetAppointmentByStatus(
+    $status: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentStudentRLFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getAppointmentByStatus(
+      status: $status
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getAppointmentByDateAndExperiment = /* GraphQL */ `
+  query GetAppointmentByDateAndExperiment(
+    $experimentId: String
+    $dayHour: ModelAppointmentStudentRLByDateAndExperimentCompositeKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentStudentRLFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getAppointmentByDateAndExperiment(
+      experimentId: $experimentId
+      dayHour: $dayHour
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        email
+        day
+        hour
+        uuid
+        firstName
+        lastName
+        experimentId
+        status
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getAppointmentByUuid = /* GraphQL */ `
+  query GetAppointmentByUuid(
+    $uuid: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentStudentRLFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getAppointmentByUuid(
       uuid: $uuid
       sortDirection: $sortDirection
       filter: $filter

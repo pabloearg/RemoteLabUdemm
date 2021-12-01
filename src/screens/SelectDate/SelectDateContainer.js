@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import {
-  FlatList, Image, StyleSheet, Text, View
+  FlatList, Image, StyleSheet, Text, TouchableOpacity, View
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import { sortBy } from 'lodash';
 import TextHeadings from '../../Components/TextHeadings/TextHeadings';
 import arrowIcon from '../../static/assets/img/arrow_rigth.png';
+import nextIcon from '../../static/assets/img/arrow-next.png';
 import type {
   DateAppoinment,
   Experiment,
@@ -24,6 +25,7 @@ import NoAppointmentsAvailable from './components/NoAppointmentsAvailable';
 
 moment.locale('es-mx');
 
+let dayCounter = 7;
 const SelectDateContainer = ({
   navigation,
 }) => {
@@ -31,7 +33,10 @@ const SelectDateContainer = ({
   const [isLoading, setIsLoading] = useState(true);
   const [errorResponse, setErrorResponse] = useState(false);
   const [appointments, setAppointments] = useState([]);
-  let dayCounter = 7;
+  const [currentDay, setCurrentDay] = useState(null)
+  useEffect(() => {
+    dayCounter = 7;
+  }, [])
   useEffect(() => {
     getEmptyAppointments(dayCounter);
     return () => {
@@ -60,6 +65,11 @@ const SelectDateContainer = ({
     }
   };
 
+  const searchNext = () => {
+    dayCounter = dayCounter +1
+    getEmptyAppointments(dayCounter)
+  }
+
   const renderItem = ({ item }: {item: DateAppoinment}) => (
     <DateRow
       appointment={item}
@@ -81,19 +91,23 @@ const SelectDateContainer = ({
     return (
       <View style={selectDateStyles.container}>
         <View style={selectDateStyles.headerContainer}>
+          <TouchableOpacity>
           <Image
-            source={arrowIcon}
+                      source={nextIcon}
             style={selectDateStyles.iconLeft}
           />
+          </TouchableOpacity>
           <TextHeadings
             text={moment().format('DD MMMM')}
             color="black"
             type="h1"
           />
+          <TouchableOpacity onPress={searchNext}>
           <Image
-            source={arrowIcon}
+            source={nextIcon}
             style={selectDateStyles.iconRight}
           />
+          </TouchableOpacity>
         </View>
         <FlatList
           renderItem={renderItem}

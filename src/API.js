@@ -175,6 +175,45 @@ export type DeleteAppointmentTakenRLInput = {|
   email: string,
 |};
 
+export type CreateAppointmentStudentRLInput = {|
+  email: string,
+  day: string,
+  hour: string,
+  uuid: string,
+  firstName?: ?string,
+  lastName?: ?string,
+  experimentId: string,
+  status: string,
+|};
+
+export type ModelAppointmentStudentRLConditionInput = {|
+  day?: ?ModelStringInput,
+  hour?: ?ModelStringInput,
+  firstName?: ?ModelStringInput,
+  lastName?: ?ModelStringInput,
+  experimentId?: ?ModelStringInput,
+  status?: ?ModelStringInput,
+  and?: ?Array< ?ModelAppointmentStudentRLConditionInput >,
+  or?: ?Array< ?ModelAppointmentStudentRLConditionInput >,
+  not?: ?ModelAppointmentStudentRLConditionInput,
+|};
+
+export type UpdateAppointmentStudentRLInput = {|
+  email: string,
+  day?: ?string,
+  hour?: ?string,
+  uuid: string,
+  firstName?: ?string,
+  lastName?: ?string,
+  experimentId?: ?string,
+  status?: ?string,
+|};
+
+export type DeleteAppointmentStudentRLInput = {|
+  email: string,
+  uuid: string,
+|};
+
 export type CreateSubjectRLInput = {|
   id?: ?string,
   name: string,
@@ -296,6 +335,30 @@ export type ModelSortDirection =
   "DESC";
 
 
+export type ModelStringKeyConditionInput = {|
+  eq?: ?string,
+  le?: ?string,
+  lt?: ?string,
+  ge?: ?string,
+  gt?: ?string,
+  between?: ?Array< ?string >,
+  beginsWith?: ?string,
+|};
+
+export type ModelAppointmentStudentRLFilterInput = {|
+  email?: ?ModelStringInput,
+  day?: ?ModelStringInput,
+  hour?: ?ModelStringInput,
+  uuid?: ?ModelStringInput,
+  firstName?: ?ModelStringInput,
+  lastName?: ?ModelStringInput,
+  experimentId?: ?ModelStringInput,
+  status?: ?ModelStringInput,
+  and?: ?Array< ?ModelAppointmentStudentRLFilterInput >,
+  or?: ?Array< ?ModelAppointmentStudentRLFilterInput >,
+  not?: ?ModelAppointmentStudentRLFilterInput,
+|};
+
 export type ModelSubjectRLFilterInput = {|
   id?: ?ModelIDInput,
   name?: ?ModelStringInput,
@@ -338,6 +401,21 @@ export type ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyCon
 |};
 
 export type ModelAppointmentTakenRLAppointmentByDateAndExperimentCompositeKeyInput = {|
+  day?: ?string,
+  hour?: ?string,
+|};
+
+export type ModelAppointmentStudentRLByDateAndExperimentCompositeKeyConditionInput = {|
+  eq?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput,
+  le?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput,
+  lt?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput,
+  ge?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput,
+  gt?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput,
+  between?: ?Array< ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput >,
+  beginsWith?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput,
+|};
+
+export type ModelAppointmentStudentRLByDateAndExperimentCompositeKeyInput = {|
   day?: ?string,
   hour?: ?string,
 |};
@@ -541,6 +619,72 @@ export type DeleteAppointmentTakenRLMutationVariables = {|
 export type DeleteAppointmentTakenRLMutation = {|
   deleteAppointmentTakenRL: ? {|
     __typename: "AppointmentTakenRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type CreateAppointmentStudentRLMutationVariables = {|
+  input: CreateAppointmentStudentRLInput,
+  condition?: ?ModelAppointmentStudentRLConditionInput,
+|};
+
+export type CreateAppointmentStudentRLMutation = {|
+  createAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type UpdateAppointmentStudentRLMutationVariables = {|
+  input: UpdateAppointmentStudentRLInput,
+  condition?: ?ModelAppointmentStudentRLConditionInput,
+|};
+
+export type UpdateAppointmentStudentRLMutation = {|
+  updateAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type DeleteAppointmentStudentRLMutationVariables = {|
+  input: DeleteAppointmentStudentRLInput,
+  condition?: ?ModelAppointmentStudentRLConditionInput,
+|};
+
+export type DeleteAppointmentStudentRLMutation = {|
+  deleteAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
     email: string,
     day: string,
     hour: string,
@@ -840,6 +984,58 @@ export type ListAppointmentTakenRLsQuery = {|
   |},
 |};
 
+export type GetAppointmentStudentRLQueryVariables = {|
+  email: string,
+  uuid: string,
+|};
+
+export type GetAppointmentStudentRLQuery = {|
+  getAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type ListAppointmentStudentRLsQueryVariables = {|
+  email?: ?string,
+  uuid?: ?ModelStringKeyConditionInput,
+  filter?: ?ModelAppointmentStudentRLFilterInput,
+  limit?: ?number,
+  nextToken?: ?string,
+  sortDirection?: ?ModelSortDirection,
+|};
+
+export type ListAppointmentStudentRLsQuery = {|
+  listAppointmentStudentRLs: ? {|
+    __typename: "ModelAppointmentStudentRLConnection",
+    items:  Array< {|
+      __typename: string,
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName: ?string,
+      lastName: ?string,
+      experimentId: string,
+      status: string,
+      createdAt: any,
+      updatedAt: any,
+      owner: ?string,
+    |} >,
+    nextToken: ?string,
+  |},
+|};
+
 export type GetSubjectRLQueryVariables = {|
   id: string,
 |};
@@ -1112,6 +1308,94 @@ export type GetByUuidQuery = {|
   |},
 |};
 
+export type GetAppointmentByStatusQueryVariables = {|
+  status?: ?string,
+  sortDirection?: ?ModelSortDirection,
+  filter?: ?ModelAppointmentStudentRLFilterInput,
+  limit?: ?number,
+  nextToken?: ?string,
+|};
+
+export type GetAppointmentByStatusQuery = {|
+  getAppointmentByStatus: ? {|
+    __typename: "ModelAppointmentStudentRLConnection",
+    items:  Array< {|
+      __typename: string,
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName: ?string,
+      lastName: ?string,
+      experimentId: string,
+      status: string,
+      createdAt: any,
+      updatedAt: any,
+      owner: ?string,
+    |} >,
+    nextToken: ?string,
+  |},
+|};
+
+export type GetAppointmentByDateAndExperimentQueryVariables = {|
+  experimentId?: ?string,
+  dayHour?: ?ModelAppointmentStudentRLByDateAndExperimentCompositeKeyConditionInput,
+  sortDirection?: ?ModelSortDirection,
+  filter?: ?ModelAppointmentStudentRLFilterInput,
+  limit?: ?number,
+  nextToken?: ?string,
+|};
+
+export type GetAppointmentByDateAndExperimentQuery = {|
+  getAppointmentByDateAndExperiment: ? {|
+    __typename: "ModelAppointmentStudentRLConnection",
+    items:  Array< {|
+      __typename: string,
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName: ?string,
+      lastName: ?string,
+      experimentId: string,
+      status: string,
+      createdAt: any,
+      updatedAt: any,
+      owner: ?string,
+    |} >,
+    nextToken: ?string,
+  |},
+|};
+
+export type GetAppointmentByUuidQueryVariables = {|
+  uuid?: ?string,
+  sortDirection?: ?ModelSortDirection,
+  filter?: ?ModelAppointmentStudentRLFilterInput,
+  limit?: ?number,
+  nextToken?: ?string,
+|};
+
+export type GetAppointmentByUuidQuery = {|
+  getAppointmentByUuid: ? {|
+    __typename: "ModelAppointmentStudentRLConnection",
+    items:  Array< {|
+      __typename: string,
+      email: string,
+      day: string,
+      hour: string,
+      uuid: string,
+      firstName: ?string,
+      lastName: ?string,
+      experimentId: string,
+      status: string,
+      createdAt: any,
+      updatedAt: any,
+      owner: ?string,
+    |} >,
+    nextToken: ?string,
+  |},
+|};
+
 export type SubjectByIdQueryVariables = {|
   id?: ?string,
   sortDirection?: ?ModelSortDirection,
@@ -1296,6 +1580,57 @@ export type OnUpdateAppointmentTakenRLSubscription = {|
 export type OnDeleteAppointmentTakenRLSubscription = {|
   onDeleteAppointmentTakenRL: ? {|
     __typename: "AppointmentTakenRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type OnCreateAppointmentStudentRLSubscription = {|
+  onCreateAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type OnUpdateAppointmentStudentRLSubscription = {|
+  onUpdateAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
+    email: string,
+    day: string,
+    hour: string,
+    uuid: string,
+    firstName: ?string,
+    lastName: ?string,
+    experimentId: string,
+    status: string,
+    createdAt: any,
+    updatedAt: any,
+    owner: ?string,
+  |},
+|};
+
+export type OnDeleteAppointmentStudentRLSubscription = {|
+  onDeleteAppointmentStudentRL: ? {|
+    __typename: "AppointmentStudentRL",
     email: string,
     day: string,
     hour: string,
