@@ -8,8 +8,8 @@ export const createUserRL = /* GraphQL */ `
     $condition: ModelUserRLConditionInput
   ) {
     createUserRL(input: $input, condition: $condition) {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -17,12 +17,7 @@ export const createUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner
@@ -35,8 +30,8 @@ export const updateUserRL = /* GraphQL */ `
     $condition: ModelUserRLConditionInput
   ) {
     updateUserRL(input: $input, condition: $condition) {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -44,12 +39,7 @@ export const updateUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner
@@ -62,8 +52,8 @@ export const deleteUserRL = /* GraphQL */ `
     $condition: ModelUserRLConditionInput
   ) {
     deleteUserRL(input: $input, condition: $condition) {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -71,12 +61,7 @@ export const deleteUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner

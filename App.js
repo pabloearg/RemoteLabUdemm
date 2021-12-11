@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { NativeModules, StatusBar } from 'react-native';
+import { LogBox, NativeModules, StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import PushNotification from '@aws-amplify/pushnotification';
@@ -14,7 +14,7 @@ import RootStack from './src/Navigators/RootStack';
 import { navigatorRef } from './src/Navigators/navigator';
 import config from './src/aws-exports';
 import createStore from './src/store/configureStore';
-
+LogBox.ignoreAllLogs()
 Amplify.configure({ ...config, });
 // get the notification data when notification is received
 

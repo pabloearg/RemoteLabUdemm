@@ -8,3 +8,11 @@ export type AppointmentType = {
   lastName?: string,
   experimentId: string,
 }
+
+
+export enum AppointmentStatus {
+  NORMAL = "0",
+  WENT = "1",
+  CANCELED = "2",
+  MISSED = "3",
+}

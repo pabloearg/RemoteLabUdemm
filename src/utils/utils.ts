@@ -1,18 +1,19 @@
-import { filter, find } from 'lodash';
+import { filter, find, orderBy } from 'lodash';
 import moment from 'moment';
 import { ToastAndroid } from 'react-native';
 import ReactNativeCalendarEvents from 'react-native-calendar-events';
 import { AppointmentRL, AppointmentStudentRL } from '../API';
 import { Experiment } from '../types';
+import { AppointmentStatus } from '../types/tables';
 
 moment.locale('es-mx');
 
 export const waitMillis = (timeInMillis: number): Promise<any> => new Promise((resolve) => setTimeout(resolve, timeInMillis));
 
 export const convertExperimentArray = (array: any[]) => {
-  const newObj = {};
-  array.forEach((obj) => {
-    newObj[obj.uuid] = obj;
+  const newObj: any = {};
+  array.forEach((obj: any) => {
+    newObj[obj?.uuid] = obj;
   });
   return newObj;
 };
@@ -72,17 +73,23 @@ export const getMomentDateFromAppointment = (appointment: AppointmentStudentRL) 
 }
 
 export const getCurrentAppointments = (appointments: AppointmentStudentRL[]) => {
-  const now = moment()
-  return filter(appointments, (appointment) => {
+  const now = moment().add(1, "days")
+  const filtered = filter(appointments, (appointment) => {
     const appointmentDate = getMomentDateFromAppointment(appointment)
-    return now.diff(appointmentDate, "millisecond") < 0
+    return now.diff(appointmentDate, "millisecond") < 0 && appointment.status === AppointmentStatus.NORMAL
   })
+  return orderBy(filtered, (appointment) => {
+    return getMomentDateFromAppointment(appointment).unix()
+  }, "asc")
 }
 
 export const getOldAppointments = (appointments: AppointmentStudentRL[]) => {
-  const now = moment()
-  return filter(appointments, (appointment) => {
+  const now = moment().add(1, "days")
+  const filtered = filter(appointments, (appointment) => {
     const appointmentDate = getMomentDateFromAppointment(appointment)
-    return now.diff(appointmentDate, "millisecond") > 0
+    return now.diff(appointmentDate, "millisecond") > 0 || appointment.status !== AppointmentStatus.NORMAL
   })
+  return orderBy(filtered, (appointment) => {
+    return getMomentDateFromAppointment(appointment).unix()
+  }, "desc")
 }

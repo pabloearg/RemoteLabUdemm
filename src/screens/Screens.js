@@ -16,6 +16,9 @@ import LogoutButton from '../Components/buttons/LogoutButton/LogoutButton';
 import SelectExperiment from './SelectExperiment/SelectExperiment';
 import SelectDate from './SelectDate';
 import AppointmentDetail from './AppointmentDetail';
+import SubjectsScreen from './teacher/Subjects';
+import StudentsScreen from './teacher/Students';
+import StudentsAppointmentsScreen from './teacher/StudentsAppointments';
 // import Home from '../Navigators/Home';
 
 const Screens: {
@@ -29,7 +32,32 @@ const Screens: {
     name: ScreensNames.SPLASH,
     component: Splash,
     options: {
+      headerShown:false,
       title: getString(translateEnum.INTRO_APPOINTMENT_TITLE), ...colorHeaderStyle
+    }
+  },
+  [ScreensNames.SUBJECTS]: {
+    name: ScreensNames.SUBJECTS,
+    component: SubjectsScreen,
+    options: {
+      title: getString(translateEnum.SUBJECTS_TTILE), ...colorHeaderStyle,
+      headerLeft: (props) => (
+        <LogoutButton />
+      ),
+    }
+  },
+  [ScreensNames.STUDENTS_APPOINTMENTS]: {
+    name: ScreensNames.STUDENTS_APPOINTMENTS,
+    component: StudentsAppointmentsScreen,
+    options: {
+      title: "Turnos", ...colorHeaderStyle
+    }
+  },
+  [ScreensNames.STUDENTS]: {
+    name: ScreensNames.STUDENTS,
+    component: StudentsScreen,
+    options: {
+      title: "Alumnos", ...colorHeaderStyle
     }
   },
   [ScreensNames.HOME]: {

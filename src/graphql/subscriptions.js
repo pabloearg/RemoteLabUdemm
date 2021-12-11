@@ -4,8 +4,8 @@
 export const onCreateUserRL = /* GraphQL */ `
   subscription OnCreateUserRL {
     onCreateUserRL {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -13,12 +13,7 @@ export const onCreateUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner
@@ -28,8 +23,8 @@ export const onCreateUserRL = /* GraphQL */ `
 export const onUpdateUserRL = /* GraphQL */ `
   subscription OnUpdateUserRL {
     onUpdateUserRL {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -37,12 +32,7 @@ export const onUpdateUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner
@@ -52,8 +42,8 @@ export const onUpdateUserRL = /* GraphQL */ `
 export const onDeleteUserRL = /* GraphQL */ `
   subscription OnDeleteUserRL {
     onDeleteUserRL {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -61,12 +51,7 @@ export const onDeleteUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner

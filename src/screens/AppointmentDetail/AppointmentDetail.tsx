@@ -1,19 +1,61 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { PricingCard, Card, Text } from 'react-native-elements';
-import moment from 'moment';
+import { Card, } from 'react-native-elements';
 import ButtonFooter from '../../Components/buttons/ButtonFooter/ButtonFooter';
 import TextHeadings from '../../Components/TextHeadings/TextHeadings';
-import { BLACK } from '../../styles/colors';
+import {
+  Experiment,
+  FromTypeAppointment,
+} from '../../types';
+import {
+  AppointmentStudentRL,
+  UserRL,
+} from '../../API';
+import {
+  getFormatedDayFromAppointment,
+  getHourFromAppointment,
+} from '../../utils/utils';
+import { useSelector } from 'react-redux';
+import { AppointmentApi } from '../../APIs/appointments';
+import { find } from 'lodash';
 
 const AppointmentDetail = () => {
   const navigation = useNavigation();
   const routeinfo = useRoute();
-  const experiment = routeinfo.params?.experiment;
-  const time = routeinfo.params?.time;
+  const params: any = routeinfo?.params
+  const [isLoading, setIsLoading] = useState(false)
+  const experiment: Experiment = params?.experiment;
+  const appointment: AppointmentStudentRL = params?.appointment;
+  const from: FromTypeAppointment = params?.from
+  const user: UserRL = useSelector((state: any) => state?.user?.data);
+  const hasViolations = user?.quantityViolations && user?.quantityViolations > 2
   console.log('experiment: ', experiment);
+
+  const cancelAppointment = async () => {
+    try {
+      await AppointmentApi.createSubjects()
+      return
+      setIsLoading(true)
+      const appointmentsRL: any = await AppointmentApi.getAppointmentsByExperimentIdAndDay(appointment.day, appointment.experimentId)
+      const _appoint = find(appointmentsRL?.data?.appointmentByDayAndExperimentUserless?.items, (_appointment) => {
+        return appointment.day === _appointment.day
+      })
+      console.log("_appoint: ", _appoint)
+      await AppointmentApi.cancelAppointment(
+        _appoint,
+        appointment,
+        user
+      )
+      navigation.goBack()
+      setIsLoading(false)
+    } catch (error) {
+      setIsLoading(false)
+
+    }
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <Card containerStyle={{
@@ -44,7 +86,7 @@ const AppointmentDetail = () => {
         />
         <TextHeadings
           type="h4"
-          text={time.format('DD/MM/YYYY')}
+          text={getFormatedDayFromAppointment(appointment)}
           color="black"
           styleText={styles.normalText}
         />
@@ -56,29 +98,31 @@ const AppointmentDetail = () => {
         />
         <TextHeadings
           type="h4"
-          text={time.format('hh:mm')}
+          text={getHourFromAppointment(appointment)}
           color="black"
           styleText={styles.normalText}
         />
-        <TextHeadings
+        {from === FromTypeAppointment.next && <><TextHeadings
           type="h3"
           text="Pausible de penalizacion?"
           color="black"
           styleText={styles.titleText}
         />
-        <TextHeadings
-          type="h4"
-          text="NO"
-          color="black"
-          styleText={styles.normalText}
-        />
+          <TextHeadings
+            type="h4"
+            text={hasViolations ? "SI" : "NO"}
+            color="black"
+            styleText={styles.normalText}
+          />
+        </>}
       </Card>
       <View style={{ flex: 1 }} />
-      <ButtonFooter
-        onPress={() => { }}
+      {from === FromTypeAppointment.next && <ButtonFooter
+        onPress={cancelAppointment}
         text="CANCELAR TURNO"
         isInvestmentButton
-      />
+        loading={isLoading}
+      />}
     </View>
   );
 };

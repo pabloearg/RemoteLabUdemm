@@ -21,16 +21,31 @@ const RootStack = () => {
   return (
     <Stack.Navigator screenOptions={navigationOptions}>
       <Stack.Screen
+        name={Screens[ScreensNames.SPLASH].name}
+        component={Screens[ScreensNames.SPLASH].component}
+        options={Screens[ScreensNames.SPLASH].options}
+      />
+      <Stack.Screen
+        name={Screens[ScreensNames.SUBJECTS].name}
+        component={Screens[ScreensNames.SUBJECTS].component}
+        options={Screens[ScreensNames.SUBJECTS].options}
+      />
+      <Stack.Screen
+        name={Screens[ScreensNames.STUDENTS].name}
+        component={Screens[ScreensNames.STUDENTS].component}
+        options={Screens[ScreensNames.STUDENTS].options}
+      />
+      <Stack.Screen
+        name={Screens[ScreensNames.STUDENTS_APPOINTMENTS].name}
+        component={Screens[ScreensNames.STUDENTS_APPOINTMENTS].component}
+        options={Screens[ScreensNames.STUDENTS_APPOINTMENTS].options}
+      />
+      <Stack.Screen
         name={Screens[ScreensNames.HOME].name}
         component={Home}
         options={Screens[ScreensNames.HOME].options}
       />
 
-      <Stack.Screen
-        name={Screens[ScreensNames.SPLASH].name}
-        component={Screens[ScreensNames.SPLASH].component}
-        options={Screens[ScreensNames.SPLASH].options}
-      />
       <Stack.Screen
         name={Screens[ScreensNames.LOGIN].name}
         component={Screens[ScreensNames.LOGIN].component}

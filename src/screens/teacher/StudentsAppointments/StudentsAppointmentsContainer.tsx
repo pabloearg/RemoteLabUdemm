@@ -8,33 +8,38 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-native-get-random-values';
 import { Card, } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import NoAppointmentsContainer from './NoAppointmentsContainer';
-import FullScreenLoader from '../../Components/FullScreenLoader/FullScreenLoader';
-import { configActions } from '../../store/actions/config';
-import { userActions } from '../../store/actions/user';
-import { appointmentActions } from '../../store/actions/appointments';
-import ScreensNames from '../ScreensNames';
-import TextHeadings from '../../Components/TextHeadings/TextHeadings';
-import { AppointmentStudentRL, AppointmentTakenRL } from '../../API';
-import { getFormatedDayFromAppointment, getHourFromAppointment } from '../../utils/utils';
-import { BLACK } from '../../styles/colors';
-import { FromTypeAppointment } from '../../types';
+import FullScreenLoader from '../../../Components/FullScreenLoader/FullScreenLoader';
+import { configActions } from '../../../store/actions/config';
+import { userActions } from '../../../store/actions/user';
+import { appointmentActions } from '../../../store/actions/appointments';
+import ScreensNames from '../../ScreensNames';
+import TextHeadings from '../../../Components/TextHeadings/TextHeadings';
+import { AppointmentStudentRL, AppointmentTakenRL, Student } from '../../../API';
+import { getFormatedDayFromAppointment, getHourFromAppointment } from '../../../utils/utils';
+import { BLACK } from '../../../styles/colors';
+import { FromTypeAppointment } from '../../../types';
+import { AppointmentApi } from '../../../APIs/appointments';
 
-const NextAppointments = () => {
+const StudentsAppointmentsContainer = () => {
   const { navigate } = useNavigation();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [appointments, setAppointments] = useState([])
+  const routeinfo: any = useRoute();
+  const student: Student = routeinfo.params?.student
   const experiments = useSelector((state: any) => state?.config?.experiments);
-  const newAppointments: any[] = useSelector((state: any) => state?.appointments?.currentAppointments?.data);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    // initAll()
+    initAll()
   }, []);
 
   const initAll = async () => {
     try {
-      await dispatch(userActions.getUser());
-      await dispatch(appointmentActions.getUserAppointments());
+      const appointmentResponse: any = await AppointmentApi.getAppointmentsByUser(student?.email)
+      const appointmentsArray = appointmentResponse?.data?.listAppointmentStudentRLs?.items;
+      setAppointments(appointmentsArray)
       await dispatch(configActions.getConfig());
       setIsLoading(false);
     } catch (error) {
@@ -42,12 +47,11 @@ const NextAppointments = () => {
     }
   }
 
-  if (false) { return (<NoAppointmentsContainer />); }
   const goToExperiment = (_experiment: any, _appointment: any) => {
     navigate(ScreensNames.APPOINTMENT_DETAIL, {
       experiment: _experiment,
       appointment: _appointment,
-      from: FromTypeAppointment.next
+      from: FromTypeAppointment.teacher
     });
   };
 
@@ -75,19 +79,19 @@ const NextAppointments = () => {
     return <FullScreenLoader color={BLACK} />
   }
 
-  if (newAppointments?.length === 0) { return (<NoAppointmentsContainer />); }
+  if (appointments?.length === 0) { return (<NoAppointmentsContainer />); }
   return (
     <>
       <FlatList
         renderItem={renderItem}
-        data={newAppointments}
+        data={appointments}
         style={{ padding: 28, }} contentContainerStyle={{ paddingBottom: 50 }}
       />
     </>
   );
 };
 
-export default NextAppointments;
+export default StudentsAppointmentsContainer;
 
 const styles = StyleSheet.create({
   container: {

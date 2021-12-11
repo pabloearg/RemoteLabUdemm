@@ -2,6 +2,7 @@ type UserRL @model
   @auth(rules: [{ allow: owner, operations: [create, delete, update] }]) 
   @key(fields: ["email"], name: "userByEmail", queryField: "userByEmail") {
   email: String!
+  id: String!
   firstName: String!
   lastName: String!
   filedId: String
@@ -9,15 +10,15 @@ type UserRL @model
   cleanDate: AWSDate
   type: String!  
   subjects: [String]
-  appointments: [AppointmentLocal]
+  appointments: [AWSJSON]
 }
 
-type AppointmentLocal {
-  experimentId: String
-  uuid: String
-  hour: AWSTime
-  day: AWSDate
-}
+# type AppointmentLocal {
+#   experimentId: String
+#   uuid: String
+#   hour: AWSTime
+#   day: AWSDate
+# }
 
 type AppointmentRL @model 
   # @key(fields: ["id","experimentId","day","isTaken"], name: "appointmentByDateAndExperiment",  queryField: "appointmentByDateAndExperiment") 

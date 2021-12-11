@@ -3,8 +3,8 @@
 //  This file was automatically generated and should not be edited.
 
 export type CreateUserRLInput = {|
-  id?: ?string,
   email: string,
+  id: string,
   firstName: string,
   lastName: string,
   filedId?: ?string,
@@ -12,14 +12,7 @@ export type CreateUserRLInput = {|
   cleanDate?: ?any,
   type: string,
   subjects?: ?Array< ?string >,
-  appointments?: ?Array< ?AppointmentLocalInput >,
-|};
-
-export type AppointmentLocalInput = {|
-  experimentId?: ?string,
-  uuid?: ?string,
-  hour?: ?any,
-  day?: ?any,
+  appointments?: ?Array< ?any >,
 |};
 
 export type ModelUserRLConditionInput = {|
@@ -31,6 +24,7 @@ export type ModelUserRLConditionInput = {|
   cleanDate?: ?ModelStringInput,
   type?: ?ModelStringInput,
   subjects?: ?ModelStringInput,
+  appointments?: ?ModelStringInput,
   and?: ?Array< ?ModelUserRLConditionInput >,
   or?: ?Array< ?ModelUserRLConditionInput >,
   not?: ?ModelUserRLConditionInput,
@@ -89,6 +83,7 @@ export type ModelIntInput = {|
 
 export type UpdateUserRLInput = {|
   email?: ?string,
+  id: string,
   firstName?: ?string,
   lastName?: ?string,
   filedId?: ?string,
@@ -96,7 +91,7 @@ export type UpdateUserRLInput = {|
   cleanDate?: ?any,
   type?: ?string,
   subjects?: ?Array< ?string >,
-  appointments?: ?Array< ?AppointmentLocalInput >,
+  appointments?: ?Array< ?any >,
 |};
 
 export type DeleteUserRLInput = {|
@@ -276,6 +271,7 @@ export type DeleteConfigRLInput = {|
 
 export type ModelUserRLFilterInput = {|
   email?: ?ModelStringInput,
+  id?: ?ModelStringInput,
   firstName?: ?ModelStringInput,
   lastName?: ?ModelStringInput,
   filedId?: ?ModelStringInput,
@@ -283,6 +279,7 @@ export type ModelUserRLFilterInput = {|
   cleanDate?: ?ModelStringInput,
   type?: ?ModelStringInput,
   subjects?: ?ModelStringInput,
+  appointments?: ?ModelStringInput,
   and?: ?Array< ?ModelUserRLFilterInput >,
   or?: ?Array< ?ModelUserRLFilterInput >,
   not?: ?ModelUserRLFilterInput,
@@ -428,8 +425,8 @@ export type CreateUserRLMutationVariables = {|
 export type CreateUserRLMutation = {|
   createUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -437,13 +434,7 @@ export type CreateUserRLMutation = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,
@@ -458,8 +449,8 @@ export type UpdateUserRLMutationVariables = {|
 export type UpdateUserRLMutation = {|
   updateUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -467,13 +458,7 @@ export type UpdateUserRLMutation = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,
@@ -488,8 +473,8 @@ export type DeleteUserRLMutationVariables = {|
 export type DeleteUserRLMutation = {|
   deleteUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -497,13 +482,7 @@ export type DeleteUserRLMutation = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,
@@ -835,8 +814,8 @@ export type GetUserRLQueryVariables = {|
 export type GetUserRLQuery = {|
   getUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -844,13 +823,7 @@ export type GetUserRLQuery = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,
@@ -868,8 +841,8 @@ export type ListUserRLsQuery = {|
     __typename: "ModelUserRLConnection",
     items:  Array< {|
       __typename: string,
-      id: string,
       email: string,
+      id: string,
       firstName: string,
       lastName: string,
       filedId: ?string,
@@ -877,13 +850,7 @@ export type ListUserRLsQuery = {|
       cleanDate: ?any,
       type: string,
       subjects: ?Array< ?string >,
-      appointments: ? Array<? {|
-        __typename: string,
-        experimentId: ?string,
-        uuid: ?string,
-        hour: ?any,
-        day: ?any,
-      |} >,
+      appointments: ?Array< ?any >,
       createdAt: any,
       updatedAt: any,
       owner: ?string,
@@ -1143,8 +1110,8 @@ export type UserByEmailQuery = {|
     __typename: "ModelUserRLConnection",
     items:  Array< {|
       __typename: string,
-      id: string,
       email: string,
+      id: string,
       firstName: string,
       lastName: string,
       filedId: ?string,
@@ -1152,13 +1119,7 @@ export type UserByEmailQuery = {|
       cleanDate: ?any,
       type: string,
       subjects: ?Array< ?string >,
-      appointments: ? Array<? {|
-        __typename: string,
-        experimentId: ?string,
-        uuid: ?string,
-        hour: ?any,
-        day: ?any,
-      |} >,
+      appointments: ?Array< ?any >,
       createdAt: any,
       updatedAt: any,
       owner: ?string,
@@ -1429,8 +1390,8 @@ export type SubjectByIdQuery = {|
 export type OnCreateUserRLSubscription = {|
   onCreateUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -1438,13 +1399,7 @@ export type OnCreateUserRLSubscription = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,
@@ -1454,8 +1409,8 @@ export type OnCreateUserRLSubscription = {|
 export type OnUpdateUserRLSubscription = {|
   onUpdateUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -1463,13 +1418,7 @@ export type OnUpdateUserRLSubscription = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,
@@ -1479,8 +1428,8 @@ export type OnUpdateUserRLSubscription = {|
 export type OnDeleteUserRLSubscription = {|
   onDeleteUserRL: ? {|
     __typename: "UserRL",
-    id: string,
     email: string,
+    id: string,
     firstName: string,
     lastName: string,
     filedId: ?string,
@@ -1488,13 +1437,7 @@ export type OnDeleteUserRLSubscription = {|
     cleanDate: ?any,
     type: string,
     subjects: ?Array< ?string >,
-    appointments: ? Array<? {|
-      __typename: string,
-      experimentId: ?string,
-      uuid: ?string,
-      hour: ?any,
-      day: ?any,
-    |} >,
+    appointments: ?Array< ?any >,
     createdAt: any,
     updatedAt: any,
     owner: ?string,

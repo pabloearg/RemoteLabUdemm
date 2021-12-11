@@ -1,6 +1,6 @@
 export const initialState = {
   appointments: {
-    previousAppointments: {
+    oldAppointments: {
       loaded: false,
       data: []
     },

@@ -4,14 +4,15 @@ import { initialState } from '../initialState';
 import * as types from '../types';
 
 export const appointmentActions = {
-  getNewUserAppointments: (user: string,
-  ) => ((dispatch: any) => (
+  getUserAppointments: (
+    user?: string,
+  ) => ((dispatch: any, getState: any) => (
     new Promise(async (resolve, reject) => {
       try {
-        const appointmentResponse: any = await AppointmentApi.getAppointmentsByUser(user)
-        console.log({ appointmentResponse });
+        const email = user ?? getState().user?.data?.email
+        console.log("emaildddd: ", email)
+        const appointmentResponse: any = await AppointmentApi.getAppointmentsByUser(email)
         const appointments = appointmentResponse?.data?.listAppointmentStudentRLs?.items;
-        console.log({ appointments });
         dispatch({ type: types.GET_CURRENT_APPOINTMENTS_SUCCESS, appointments: appointments });
         resolve(appointmentResponse);
       } catch (error) {

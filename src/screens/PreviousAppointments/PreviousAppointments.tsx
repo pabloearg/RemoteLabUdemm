@@ -1,45 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import {
   FlatList,
-  Image, StyleSheet, Text, TouchableOpacity, View
+  StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import TextHeadings from '../../Components/TextHeadings/TextHeadings';
-import { getString, translateEnum } from '../../static/locale';
-import { Colors } from '../../styles';
-import experiment1 from '../../static/assets/img/experiment1.png';
 import FullScreenLoader from '../../Components/FullScreenLoader/FullScreenLoader';
 import NoPreviousAppointmentsContainer from './NoPreviousAppointmentsContainer';
 import { useSelector } from 'react-redux';
-import { AppointmentTakenRL } from '../../API';
+import { AppointmentStudentRL, AppointmentTakenRL } from '../../API';
 import { Card } from 'react-native-elements';
 import { getFormatedDayFromAppointment, getHourFromAppointment } from '../../utils/utils';
 import { BLACK } from '../../styles/colors';
 import ScreensNames from '../ScreensNames';
 import { useNavigation } from '@react-navigation/core';
+import { FromTypeAppointment } from '../../types';
 
 const PreviousAppointments = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { navigate } = useNavigation();
   const experiments = useSelector((state: any) => state?.config?.experiments);
-  const oldAppointments: AppointmentTakenRL[] = useSelector((state: any) => state?.appointments?.oldAppointments?.data);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  const oldAppointments: any[] = useSelector((state: any) => state?.appointments?.oldAppointments?.data);
 
-
-  const goToExperiment = (_experiment: any, _time: any) => {
-    navigate(ScreensNames.APPOINTMENT_DETAIL, { experiment: _experiment, time: _time });
+  const goToExperiment = (_experiment: any, _appointment: any) => {
+    navigate(ScreensNames.APPOINTMENT_DETAIL, {
+      experiment: _experiment,
+      appointment: _appointment,
+      from: FromTypeAppointment.previous
+    });
   };
 
   const renderItem = ({ item }: { item: AppointmentStudentRL }) => {
     const experiment = experiments[item.experimentId]
-    return (<TouchableOpacity onPress={() => goToExperiment(item)}>
+    return (<TouchableOpacity onPress={() => goToExperiment(experiment, item)}>
       <Card>
         <Card.Title>{experiment.name}</Card.Title>
         <Card.Image source={{ uri: experiment?.iconUrl }} style={styles.icon} resizeMode="contain" />
-        {/* <Card.Divider /> */}
         <TextHeadings
           type="h4"
           text={`${getFormatedDayFromAppointment(item)} ${getHourFromAppointment(item)}`}
@@ -53,6 +49,7 @@ const PreviousAppointments = () => {
     return <FullScreenLoader color={BLACK} />
   }
 
+  console.log("oldAppointments: ", oldAppointments)
   if (oldAppointments?.length === 0) { return (<NoPreviousAppointmentsContainer />); }
   return (
     <>
@@ -77,9 +74,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: 120,
-    // width: 120,
-    // borderRadius: 60,
-    // marginVertical: 35,
     alignSelf: 'center'
   },
   normalText: {

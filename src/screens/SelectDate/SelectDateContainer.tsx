@@ -3,39 +3,46 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import {
-  FlatList, Image, StyleSheet, Text, TouchableOpacity, View
+  FlatList,
+  Image,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/core';
+import { useRoute } from '@react-navigation/core';
 import { sortBy } from 'lodash';
 import TextHeadings from '../../Components/TextHeadings/TextHeadings';
-import arrowIcon from '../../static/assets/img/arrow_rigth.png';
 import nextIcon from '../../static/assets/img/arrow-next.png';
 import type {
   DateAppoinment,
   Experiment,
 } from '../../types';
-import calendarIcon from '../../static/assets/img/calendar.png';
-import Separator from '../../Components/Separator/Separator';
 import DateRow from './DateRow';
 import { selectDateStyles } from './styles';
 import 'moment/locale/es-mx';
 import { AppointmentApi } from '../../APIs/appointments';
 import FullScreenLoader from '../../Components/FullScreenLoader/FullScreenLoader';
 import NoAppointmentsAvailable from './components/NoAppointmentsAvailable';
+import { BLACK } from '../../styles/colors';
+import { useSelector } from 'react-redux';
+import { UserRL } from '../../API';
 
 moment.locale('es-mx');
-
-let dayCounter = 7;
+const DAY_QUANTITY = 1
+let dayCounter = DAY_QUANTITY;
+let dayCounterFix = DAY_QUANTITY;
 const SelectDateContainer = ({
-  navigation,
 }) => {
-  const { params: { experiment } } = useRoute();
+  const routeinfo: any = useRoute();
+  const experiment: Experiment = routeinfo?.params?.experiment
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingIn, setIsLoadingIn] = useState(false);
   const [errorResponse, setErrorResponse] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [currentDay, setCurrentDay] = useState(null)
+  const user: UserRL = useSelector((state: any) => state?.user?.data);
   useEffect(() => {
-    dayCounter = 7;
+    dayCounter = DAY_QUANTITY + (user?.quantityViolations ?? 0) * 3;
+    dayCounterFix = DAY_QUANTITY + (user?.quantityViolations ?? 0) * 3;
   }, [])
   useEffect(() => {
     getEmptyAppointments(dayCounter);
@@ -43,34 +50,49 @@ const SelectDateContainer = ({
 
     };
   }, []);
-  const getEmptyAppointments = async (day = 7) => {
+  const getEmptyAppointments = async (day = DAY_QUANTITY) => {
     try {
+      setIsLoadingIn(true)
       const exactDay = moment().add('days', dayCounter).format('MM-DD-yyyy');
-      const response = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment.uuid, '');
+      const response: any = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment.uuid, '');
       let appointmentsItems = response?.data?.appointmentByDayAndExperimentUserless?.items;
       if (appointmentsItems.length === 0 && dayCounter <= 14) {
         dayCounter += 1;
-        return await getEmptyAppointments(dayCounter);
+        await getEmptyAppointments(dayCounter);
+        return
       }
       if (appointmentsItems.length === 0) {
         throw new Error('over 14 times');
       }
       setIsLoading(false);
+      setIsLoadingIn(false)
       appointmentsItems = sortBy(appointmentsItems, ['hour']);
       setAppointments(appointmentsItems);
-    } catch (error) {
+    } catch (error: any) {
       setIsLoading(false);
+      setIsLoadingIn(false)
       setErrorResponse(error);
       console.log({ error });
     }
   };
 
+  const getExactDate = () => {
+    const exactDay = moment().add('days', dayCounter).format('DD MMM');
+    return exactDay
+  }
+
   const searchNext = () => {
-    dayCounter = dayCounter +1
+    dayCounter = dayCounter + 1
     getEmptyAppointments(dayCounter)
   }
 
-  const renderItem = ({ item }: {item: DateAppoinment}) => (
+  const searchPrev = () => {
+    if (dayCounter)
+      dayCounter = dayCounter - 1
+    getEmptyAppointments(dayCounter)
+  }
+
+  const renderItem = ({ item }: { item: DateAppoinment }) => (
     <DateRow
       appointment={item}
     />
@@ -91,29 +113,31 @@ const SelectDateContainer = ({
     return (
       <View style={selectDateStyles.container}>
         <View style={selectDateStyles.headerContainer}>
-          <TouchableOpacity>
-          <Image
-                      source={nextIcon}
-            style={selectDateStyles.iconLeft}
-          />
-          </TouchableOpacity>
+          {(dayCounter <= dayCounterFix) ? <View style={selectDateStyles.iconLeft} /> :
+            <TouchableOpacity onPress={searchPrev}>
+              <Image
+                source={nextIcon}
+                style={selectDateStyles.iconLeft}
+              />
+            </TouchableOpacity>}
           <TextHeadings
-            text={moment().format('DD MMMM')}
+            text={getExactDate()}
             color="black"
             type="h1"
           />
           <TouchableOpacity onPress={searchNext}>
-          <Image
-            source={nextIcon}
-            style={selectDateStyles.iconRight}
-          />
+            <Image
+              source={nextIcon}
+              style={selectDateStyles.iconRight}
+            />
           </TouchableOpacity>
         </View>
-        <FlatList
-          renderItem={renderItem}
-          data={appointments}
-          showsVerticalScrollIndicator={false}
-        />
+        {isLoadingIn ? <View style={{ paddingTop: 140 }}><FullScreenLoader color={BLACK} /></View> :
+          <FlatList
+            renderItem={renderItem}
+            data={appointments}
+            showsVerticalScrollIndicator={false}
+          />}
       </View>
     );
   }

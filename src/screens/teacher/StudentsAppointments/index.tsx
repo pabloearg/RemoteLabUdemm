@@ -1,0 +1,2 @@
+import StudentsAppointmentsScreen from "./StudentsAppointmentsContainer"
+export default StudentsAppointmentsScreen

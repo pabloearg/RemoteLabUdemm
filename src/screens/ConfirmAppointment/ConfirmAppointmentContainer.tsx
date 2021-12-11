@@ -20,7 +20,7 @@ const ConfirmAppointmentContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation()
-  const user: UserRL = useSelector((state: any) => state?.user);
+  const user: UserRL = useSelector((state: any) => state?.user?.data);
   const experiments = useSelector((state: any) => state?.config?.experiments);
   const params: any = useRoute()?.params;
 
@@ -48,7 +48,7 @@ const ConfirmAppointmentContainer = () => {
         status: "0"
       }
       await AppointmentApi.createUserAppointment(userAppointment);
-      dispatch(appointmentActions.getNewUserAppointments('pabloearg@gmail.com'));
+      dispatch(appointmentActions.getUserAppointments('pabloearg@gmail.com'));
       const added = await addAppointmentToCalendar(userAppointment, experiments[userAppointment.experimentId])
       navigation.navigate(ScreensNames.HOME)
 

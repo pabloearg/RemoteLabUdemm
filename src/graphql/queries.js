@@ -4,8 +4,8 @@
 export const getUserRL = /* GraphQL */ `
   query GetUserRL($id: ID!) {
     getUserRL(id: $id) {
-      id
       email
+      id
       firstName
       lastName
       filedId
@@ -13,12 +13,7 @@ export const getUserRL = /* GraphQL */ `
       cleanDate
       type
       subjects
-      appointments {
-        experimentId
-        uuid
-        hour
-        day
-      }
+      appointments
       createdAt
       updatedAt
       owner
@@ -33,8 +28,8 @@ export const listUserRLs = /* GraphQL */ `
   ) {
     listUserRLs(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
         email
+        id
         firstName
         lastName
         filedId
@@ -42,12 +37,7 @@ export const listUserRLs = /* GraphQL */ `
         cleanDate
         type
         subjects
-        appointments {
-          experimentId
-          uuid
-          hour
-          day
-        }
+        appointments
         createdAt
         updatedAt
         owner
@@ -283,8 +273,8 @@ export const userByEmail = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
-        id
         email
+        id
         firstName
         lastName
         filedId
@@ -292,12 +282,7 @@ export const userByEmail = /* GraphQL */ `
         cleanDate
         type
         subjects
-        appointments {
-          experimentId
-          uuid
-          hour
-          day
-        }
+        appointments
         createdAt
         updatedAt
         owner

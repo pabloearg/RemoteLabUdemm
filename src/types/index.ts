@@ -2,7 +2,7 @@
 type Experiment = {
   uuid: string,
   name: string,
-  iconUrl:any,
+  iconUrl: any,
 }
 
 type DateAppoinment = {
@@ -20,3 +20,14 @@ export type {
   Experiment,
   DateAppoinment,
 };
+
+export enum FromTypeAppointment {
+  next = 1,
+  previous = 2,
+  teacher = 3,
+}
+
+export enum UserType {
+  student = "S",
+  teacher = "T"
+}
