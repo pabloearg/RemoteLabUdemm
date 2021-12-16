@@ -48,7 +48,7 @@ const ConfirmAppointmentContainer = () => {
         status: "0"
       }
       await AppointmentApi.createUserAppointment(userAppointment);
-      dispatch(appointmentActions.getUserAppointments('pabloearg@gmail.com'));
+      dispatch(appointmentActions.getUserAppointments(user.email));
       const added = await addAppointmentToCalendar(userAppointment, experiments[userAppointment.experimentId])
       navigation.navigate(ScreensNames.HOME)
 

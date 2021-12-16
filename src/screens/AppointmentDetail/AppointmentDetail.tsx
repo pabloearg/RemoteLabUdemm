@@ -17,12 +17,15 @@ import {
   getFormatedDayFromAppointment,
   getHourFromAppointment,
 } from '../../utils/utils';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppointmentApi } from '../../APIs/appointments';
 import { find } from 'lodash';
+import { appointmentActions } from '../../store/actions/appointments';
+import { userActions } from '../../store/actions/user';
 
 const AppointmentDetail = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const routeinfo = useRoute();
   const params: any = routeinfo?.params
   const [isLoading, setIsLoading] = useState(false)
@@ -35,8 +38,6 @@ const AppointmentDetail = () => {
 
   const cancelAppointment = async () => {
     try {
-      await AppointmentApi.createSubjects()
-      return
       setIsLoading(true)
       const appointmentsRL: any = await AppointmentApi.getAppointmentsByExperimentIdAndDay(appointment.day, appointment.experimentId)
       const _appoint = find(appointmentsRL?.data?.appointmentByDayAndExperimentUserless?.items, (_appointment) => {
@@ -48,6 +49,8 @@ const AppointmentDetail = () => {
         appointment,
         user
       )
+      dispatch(appointmentActions.getUserAppointments(user.email));
+      dispatch(userActions.getUser());
       navigation.goBack()
       setIsLoading(false)
     } catch (error) {

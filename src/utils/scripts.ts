@@ -14,7 +14,7 @@ export const getAppointmentsArray = (experimentId: string) => {
         const appointment = {
           uuid: id,
           day: date.format("MM-DD-YYYY"),
-          hour: date.format("hhmm"),
+          hour: date.format("HHmm"),
           isTaken: "0",
           experimentId: experimentId,
           id: id,
@@ -24,6 +24,6 @@ export const getAppointmentsArray = (experimentId: string) => {
 
     }
   }
-  return appointments
   console.log("appointments: ", appointments)
+  return appointments
 }
