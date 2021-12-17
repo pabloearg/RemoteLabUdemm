@@ -6,11 +6,14 @@ import { useNavigation } from '@react-navigation/core';
 import Amplify, { Auth } from 'aws-amplify';
 import plusIcon from '../../../static/assets/img/exit-logout-2857.png';
 import ScreensNames from '../../../screens/ScreensNames';
+import { useDispatch } from 'react-redux';
 
 export default function LogoutButton({ onPress }) {
   const { navigate } = useNavigation();
+  const dispatch = useDispatch();
   const goToLogin = () => {
     Auth.signOut();
+    dispatch(userActions.getUser());
     // navigate(ScreensNames.SELECT_EXPERIMENT);
   };
   return (

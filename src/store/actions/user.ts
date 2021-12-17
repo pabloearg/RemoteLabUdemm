@@ -19,5 +19,8 @@ export const userActions = {
         resolve(subjectsData);
       });
     })
+  )),
+  logout: () => ((dispatch: any) => (
+    dispatch({ type: types.LOGOUT, })
   ))
 };
