@@ -3,16 +3,13 @@ import {
   FlatList, StyleSheet, Text, View
 } from 'react-native';
 import { useSelector } from 'react-redux';
-import arbolIcon from '../../static/assets/img/icons/arbol.png';
-import capacitorIcon from '../../static/assets/img/icons/cargaCapacitor.png';
-import estadisticoIcon from '../../static/assets/img/icons/estadistico.png';
-import kirchoffIcon from '../../static/assets/img/icons/kirchoff.png';
-import inclinadoIcon from '../../static/assets/img/icons/pelota_plano_inclinado.png';
 import ExperimentRow from './components/ExperimentRow';
 import type {
   Experiment,
 } from '../../types';
 import Separator from '../../Components/Separator/Separator';
+import { filter, find } from 'lodash';
+import TextHeadings from '../../Components/TextHeadings/TextHeadings';
 
 const Experimentos = [
   {
@@ -37,16 +34,21 @@ const Experimentos = [
   },
 ];
 
-const Icons = {
-  0: arbolIcon,
-  1: capacitorIcon,
-  2: estadisticoIcon,
-  3: kirchoffIcon,
-  4: inclinadoIcon,
-};
 
 const SelectExperiment = () => {
   const experiments = useSelector((state) => state?.config?.experimentsArray);
+  const newAppointments: any[] = useSelector((state: any) => state?.appointments?.currentAppointments?.data);
+
+  const [experimentsFree, setExperimentsFree] = React.useState<any>([])
+  React.useEffect(() => {
+    const _experiments = filter(experiments, (experiment) => {
+
+      const exist = find(newAppointments, (_appointment) => _appointment.experimentId === experiment.uuid)
+      return exist === undefined
+    })
+    setExperimentsFree(_experiments.length > 0 ? _experiments : null)
+  }, [])
+
   console.log({ experiments });
   const renderItem = ({ item }: { item: Experiment }) => {
     console.log('item: ', item);
@@ -59,12 +61,20 @@ const SelectExperiment = () => {
 
   const getKey = (item) => item.uuid;
 
+  if (experimentsFree === null) {
+    return (
+      <View style={{ paddingTop: 40 }}><TextHeadings type='h3' color='black' styleText={{ textAlign: "center" }}>
+        {"No hay experimentos disponibles"}
+      </TextHeadings>
+      </View>)
+  }
+
   return (
     <View style={{ padding: 28 }}>
       <FlatList
         keyExtractor={getKey}
         renderItem={renderItem}
-        data={experiments}
+        data={experimentsFree}
         ItemSeparatorComponent={Separator}
       />
     </View>

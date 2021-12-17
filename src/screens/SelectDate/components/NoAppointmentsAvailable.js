@@ -6,6 +6,7 @@ const NoAppointmentsAvailable = () => (
   <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
     <TextHeadings
       text="No hay turnos disponibles"
+      color='black'
     />
   </View>
 );

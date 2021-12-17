@@ -7,6 +7,7 @@ import Amplify, { Auth } from 'aws-amplify';
 import plusIcon from '../../../static/assets/img/exit-logout-2857.png';
 import ScreensNames from '../../../screens/ScreensNames';
 import { useDispatch } from 'react-redux';
+import { userActions } from '../../../store/actions/user';
 
 export default function LogoutButton({ onPress }) {
   const { navigate } = useNavigation();
