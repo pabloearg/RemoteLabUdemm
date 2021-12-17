@@ -15,6 +15,10 @@ export default (state = initialState.user, action: any) => {
         ...state,
         subjects: [...action.subjects],
       };
+    case types.LOGOUT:
+      return {
+        ...initialState.user
+      }
     default:
       return state;
   }

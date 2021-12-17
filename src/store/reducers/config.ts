@@ -12,6 +12,10 @@ export default (state = initialState.config, action) => {
         experimentsArray: action.experimentsArray,
         experiments: action.experiments,
       };
+    case types.LOGOUT:
+      return {
+        ...initialState.config
+      }
     default:
       return state;
   }

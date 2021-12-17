@@ -23,6 +23,10 @@ export default (state = initialState.appointments, action) => {
       return state;
     case types.DELETE_APPOINTMENTS_SUCCESS:
       return state;
+    case types.LOGOUT:
+      return {
+        ...initialState.appointments
+    }
     default:
       return state;
   }
