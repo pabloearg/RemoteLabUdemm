@@ -20,6 +20,7 @@ import { AppointmentStudentRL, AppointmentTakenRL } from '../../API';
 import { getFormatedDayFromAppointment, getHourFromAppointment } from '../../utils/utils';
 import { BLACK } from '../../styles/colors';
 import { FromTypeAppointment } from '../../types';
+import { Images } from '../../static/assets/Images';
 
 const NextAppointments = () => {
   const { navigate } = useNavigation();
@@ -61,7 +62,7 @@ const NextAppointments = () => {
     return (<TouchableOpacity onPress={() => goToExperiment(experiment, item)}>
       <Card>
         <Card.Title>{experiment.name}</Card.Title>
-        <Card.Image source={{ uri: experiment?.iconUrl }} style={styles.icon} resizeMode="contain" />
+        <Card.Image source={Images.experiments[experiment?.uuid]} style={styles.icon} resizeMode="contain" />
         <TextHeadings
           type="h4"
           text={`${getFormatedDayFromAppointment(item)} ${getHourFromAppointment(item)}`}

@@ -22,6 +22,7 @@ import { AppointmentApi } from '../../APIs/appointments';
 import { find } from 'lodash';
 import { appointmentActions } from '../../store/actions/appointments';
 import { userActions } from '../../store/actions/user';
+import { Images } from '../../static/assets/Images';
 
 const AppointmentDetail = () => {
   const navigation = useNavigation();
@@ -79,7 +80,7 @@ const AppointmentDetail = () => {
           color="black"
           styleText={styles.normalText}
         />
-        <Card.Image source={{ uri: experiment?.iconUrl }} style={styles.icon} resizeMode="contain" />
+        <Card.Image source={Images.experiments[experiment?.uuid]} style={styles.icon} resizeMode="contain" />
         {/* <Card.Divider /> */}
         <TextHeadings
           type="h3"

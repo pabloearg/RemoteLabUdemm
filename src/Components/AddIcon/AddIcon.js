@@ -12,7 +12,7 @@ export default function AddIcon({ onPress }) {
   const { navigate } = useNavigation();
   const goToLogin = () => {
     // getAppointmentsArray("2")
-    // AppointmentApi.addExperiments("2")
+    // AppointmentApi.addExperiments("1")
     // await AppointmentApi.createSubjects()
     navigate(ScreensNames.SELECT_EXPERIMENT);
   };

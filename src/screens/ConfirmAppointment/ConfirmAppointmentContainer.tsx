@@ -10,6 +10,7 @@ import { AppointmentApi } from '../../APIs/appointments';
 import ButtonFooter from '../../Components/buttons/ButtonFooter/ButtonFooter';
 import TextHeadings from '../../Components/TextHeadings/TextHeadings';
 import { updateAppointmentRL } from '../../graphql/mutations';
+import { Images } from '../../static/assets/Images';
 import { appointmentActions } from '../../store/actions/appointments';
 import { AppointmentType } from '../../types/tables';
 import { addAppointmentToCalendar, getFormatedDayFromAppointment, getHourFromAppointment } from '../../utils/utils';
@@ -77,7 +78,7 @@ const ConfirmAppointmentContainer = () => {
             type="h2"
             styleText={styles.normalText}
           />
-          <Card.Image source={{ uri: experiment?.iconUrl }} style={styles.icon} resizeMode="contain" />
+          <Card.Image source={Images.experiments[experiment?.uuid]} style={styles.icon} resizeMode="contain" />
           {/* <Card.Divider /> */}
 
           <TextHeadings
@@ -108,7 +109,7 @@ const ConfirmAppointmentContainer = () => {
         </Card>
       </ScrollView>
       <ButtonFooter
-        text="CONFIRM"
+        text="CONFIRMAR"
         loading={isLoading}
         onPress={submit}
       />

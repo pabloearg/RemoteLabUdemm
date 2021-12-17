@@ -24,7 +24,7 @@ export const getFormatedDayFromAppointment = (appointment: AppointmentStudentRL 
   if (!appointment?.day) {
     return '';
   }
-  const momentDay = moment(appointment.day);
+  const momentDay = moment(appointment.day, "MM-DD-yyyy");
   return momentDay.format('DD MMM yyyy');
 };
 
@@ -52,7 +52,7 @@ export const addAppointmentToCalendar = async (appointment: AppointmentStudentRL
     const h = parseInt(appointment?.hour?.substr(0, 2))
     const m = parseInt(appointment?.hour?.substr(2, 2))
 
-    const initDate = moment(appointment.day).set("hours", h).set("minutes", m).toISOString()
+    const initDate = moment(appointment.day, "MM-DD-yyyy").set("hours", h).set("minutes", m).toISOString()
     const endDate = moment(initDate).add(30, "minutes").toISOString()
     const event = await ReactNativeCalendarEvents.saveEvent('Remote Lab', {
       description: `Turno para realizar el laboratorio de ${experiment.name},${fecha}`,
@@ -69,7 +69,7 @@ export const addAppointmentToCalendar = async (appointment: AppointmentStudentRL
 export const getMomentDateFromAppointment = (appointment: AppointmentStudentRL) => {
   const h = parseInt(appointment?.hour?.substr(0, 2))
   const m = parseInt(appointment?.hour?.substr(2, 2))
-  return moment(appointment.day).set("hours", h).set("minutes", m)
+  return moment(appointment.day, "MM-DD-yyyy").set("hours", h).set("minutes", m)
 }
 
 export const getCurrentAppointments = (appointments: AppointmentStudentRL[]) => {

@@ -12,6 +12,7 @@ import { SelectExpermientStyles } from '../styles';
 import type {
   ExperimentsRL
 } from '../../../types/graphql';
+import { Images } from '../../../static/assets/Images';
 
 type Props = {
   experiment: ExperimentsRL,
@@ -28,7 +29,7 @@ const ExperimentRow = ({
       onPress={() => navigate(ScreensNames.SELECT_DATE, { experiment })}
     >
       <Image
-        source={{ uri: experiment.iconUrl }}
+        source={Images.experiments[experiment?.uuid]}
         style={SelectExpermientStyles.icon}
       />
       <TextHeadings
