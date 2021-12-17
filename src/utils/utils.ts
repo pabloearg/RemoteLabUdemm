@@ -73,7 +73,7 @@ export const getMomentDateFromAppointment = (appointment: AppointmentStudentRL) 
 }
 
 export const getCurrentAppointments = (appointments: AppointmentStudentRL[]) => {
-  const now = moment().add(1, "days")
+  const now = moment()
   const filtered = filter(appointments, (appointment) => {
     const appointmentDate = getMomentDateFromAppointment(appointment)
     return now.diff(appointmentDate, "millisecond") < 0 && appointment.status === AppointmentStatus.NORMAL
@@ -84,7 +84,7 @@ export const getCurrentAppointments = (appointments: AppointmentStudentRL[]) => 
 }
 
 export const getOldAppointments = (appointments: AppointmentStudentRL[]) => {
-  const now = moment().add(1, "days")
+  const now = moment()
   const filtered = filter(appointments, (appointment) => {
     const appointmentDate = getMomentDateFromAppointment(appointment)
     return now.diff(appointmentDate, "millisecond") > 0 || appointment.status !== AppointmentStatus.NORMAL
