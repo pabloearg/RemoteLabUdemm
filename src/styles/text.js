@@ -15,7 +15,7 @@ export const getFontWeight = (weight: string) => {
 };
 const textStyles = StyleSheet.create({
   fontFamily: {
-    // fontFamily: "",
+    fontFamily: Platform.OS === 'android' ? 'avenirgoalsetter' : 'avenir',
     color: WHITE,
   },
   h1: {
