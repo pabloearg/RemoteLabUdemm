@@ -108,7 +108,7 @@ const AppointmentDetail = () => {
         />
         {from === FromTypeAppointment.next && <><TextHeadings
           type="h3"
-          text="Pausible de penalizacion?"
+          text="Plausible de penalización?"
           color="black"
           styleText={styles.titleText}
         />

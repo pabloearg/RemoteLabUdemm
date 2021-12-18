@@ -32,8 +32,9 @@ const Screens: {
     name: ScreensNames.SPLASH,
     component: Splash,
     options: {
-      headerShown:false,
-      title: getString(translateEnum.INTRO_APPOINTMENT_TITLE), ...colorHeaderStyle
+      headerShown: false,
+      title: getString(translateEnum.INTRO_APPOINTMENT_TITLE), ...colorHeaderStyle,
+      gestureEnabled: false,
     }
   },
   [ScreensNames.SUBJECTS]: {
@@ -41,6 +42,7 @@ const Screens: {
     component: SubjectsScreen,
     options: {
       title: getString(translateEnum.SUBJECTS_TTILE), ...colorHeaderStyle,
+      gestureEnabled: false,
       headerLeft: (props) => (
         <LogoutButton />
       ),
@@ -65,6 +67,7 @@ const Screens: {
     options: {
       title: getString(translateEnum.INTRO_APPOINTMENT_TITLE),
       ...colorHeaderStyle,
+      gestureEnabled: false,
       headerRight: (props) => (
         <AddIcon />
       ),
@@ -80,12 +83,20 @@ const Screens: {
   [ScreensNames.PREVIOUS_APPOINTMENT]: {
     name: ScreensNames.PREVIOUS_APPOINTMENT,
     component: PreviousAppointments,
-    options: { title: getString(translateEnum.INTRO_APPOINTMENT_PREVIOUS), ...colorHeaderStyle }
+    options: {
+      title: getString(translateEnum.INTRO_APPOINTMENT_PREVIOUS),
+      ...colorHeaderStyle,
+      gestureEnabled: false,
+    }
   },
   [ScreensNames.NEXT_APPOINTMENT]: {
     name: ScreensNames.NEXT_APPOINTMENT,
     component: NextAppointments,
-    options: { title: getString(translateEnum.INTRO_APPOINTMENT_NEXT), ...colorHeaderStyle }
+    options: {
+      title: getString(translateEnum.INTRO_APPOINTMENT_NEXT),
+      ...colorHeaderStyle,
+      gestureEnabled: false,
+    }
   },
   [ScreensNames.SELECT_EXPERIMENT]: {
     name: ScreensNames.SELECT_EXPERIMENT,

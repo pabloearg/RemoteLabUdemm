@@ -9,18 +9,23 @@ import { Colors } from '../../../styles';
 import experiment1 from '../../../static/assets/img/experiment4.png';
 import ButtonLarge from '../../../Components/buttons/ButtonLarge/ButtonLarge';
 
-const NoAppointmentsContainer = () => (
+const NoAppointmentsContainer = ({
+  isTeacher
+}) => (
   <View style={styles.container}>
     <Image source={experiment1} style={{ height: 140, aspectRatio: 1.068, marginBottom: 20 }} />
     {/* <ButtonLarge */}
     <TextHeadings
-      text={getString(translateEnum.INTRO_APPOINTMENT_CURRENT_TITLE)}
+      text={!isTeacher? getString(translateEnum.INTRO_APPOINTMENT_CURRENT_TITLE):
+        getString(translateEnum.INTRO_APPOINTMENT_CURRENT_TITLE_TEACHER)
+      }
       type="h5"
       color={Colors.GRAY_DARK}
       styleText={{ marginBottom: 20 }}
     />
     <TextHeadings
-      text={getString(translateEnum.INTRO_APPOINTMENT_CURRENT_DESCRIPTION)}
+      text={!isTeacher? getString(translateEnum.INTRO_APPOINTMENT_CURRENT_DESCRIPTION):
+        getString(translateEnum.INTRO_APPOINTMENT_CURRENT_DESCRIPTION_TEACHER)}
       type="h4"
       color={Colors.GRAY_DARK}
     />

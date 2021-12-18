@@ -1,37 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   FlatList,
   StyleSheet,
   TouchableOpacity,
-  View,
 } from 'react-native';
 
-import { useDispatch, useSelector } from 'react-redux';
 import 'react-native-get-random-values';
 import { Card, } from 'react-native-elements';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import NoStudentsContainer from './NoStudentsContainer';
-import FullScreenLoader from '../../../Components/FullScreenLoader/FullScreenLoader';
-import { configActions } from '../../../store/actions/config';
-import { userActions } from '../../../store/actions/user';
-import { appointmentActions } from '../../../store/actions/appointments';
 import ScreensNames from '../../ScreensNames';
 import TextHeadings from '../../../Components/TextHeadings/TextHeadings';
-import { AppointmentStudentRL, AppointmentTakenRL, Student, SubjectRL } from '../../../API';
-import { getFormatedDayFromAppointment, getHourFromAppointment } from '../../../utils/utils';
-import { BLACK } from '../../../styles/colors';
-import { FromTypeAppointment } from '../../../types';
+import { Student, SubjectRL } from '../../../API';
 
 const StudentsContainer = ({ }) => {
   const { navigate } = useNavigation();
   const routeinfo: any = useRoute();
   const subject: SubjectRL = routeinfo.params?.subject
-  const students: Student[] = subject?.students
+  const students: Student[] = subject?.students ?? []
 
   const goToAppointments = (item: Student) => {
     console.log("goToAppointments: ", item)
     navigate(ScreensNames.STUDENTS_APPOINTMENTS, {
-      student: item
+      student: item,
+      isTeacher: true
     })
   }
 
@@ -79,7 +71,7 @@ const StudentsContainer = ({ }) => {
     </TouchableOpacity>)
   }
 
-  if (students?.length === 0) { return (<NoStudentsContainer />); }
+  if (students?.length === 0 || !students) { return (<NoStudentsContainer />); }
   return (
     <>
       <FlatList

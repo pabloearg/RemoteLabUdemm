@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+  Alert,
   FlatList,
   StyleSheet,
   TouchableOpacity,
@@ -9,7 +10,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-native-get-random-values';
 import { Card, } from 'react-native-elements';
-import { useNavigation, useRoute } from '@react-navigation/core';
+import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/core';
 import NoStudentsContainer from './NoStudentsContainer';
 import FullScreenLoader from '../../../Components/FullScreenLoader/FullScreenLoader';
 import { configActions } from '../../../store/actions/config';
@@ -21,6 +22,7 @@ import { AppointmentStudentRL, AppointmentTakenRL, SubjectRL } from '../../../AP
 import { getFormatedDayFromAppointment, getHourFromAppointment } from '../../../utils/utils';
 import { BLACK } from '../../../styles/colors';
 import { FromTypeAppointment } from '../../../types';
+import useBackButton from '../../../hooks/back';
 
 const SubjectsContainer = ({ }) => {
   const { navigate } = useNavigation();
@@ -28,15 +30,37 @@ const SubjectsContainer = ({ }) => {
   const subjects: SubjectRL[] = useSelector((state: any) => state?.user?.subjects);
   const routeinfo: any = useRoute();
 
-  const goToSubject = (item: SubjectRL) => {
-    navigate(ScreensNames.STUDENTS, {
-      subject: item
-    })
-  }
+  const { setParams } = useNavigation();
+  const navigation = useNavigation();
+  const [disable, setDisable] = useState(false)
+  useBackButton({
+    setParams,
+    navigation,
+    disable,
+  });
+  useFocusEffect(
+    React.useCallback(() => {
+      // Do something when the screen is focused
+      setDisable(false)
+      console.log("enter")
+      return () => {
+        // Do something when the screen is unfocused
+        // Useful for cleanup functions
+        setDisable(true)
+        console.log("exit")
+      };
+    }, [])
+  );
+
 
   console.log("subjects subjects: ", subjects)
   const renderItem = ({ item }: { item: SubjectRL }) => {
-    return (<TouchableOpacity onPress={() => goToSubject(item)}>
+    const goToSubject = () => {
+      navigate(ScreensNames.STUDENTS, {
+        subject: item
+      })
+    }
+    return (<TouchableOpacity onPress={goToSubject}>
       <Card>
         <Card.Title>{"Universidad"}</Card.Title>
         <Card.Title>{item.university}</Card.Title>

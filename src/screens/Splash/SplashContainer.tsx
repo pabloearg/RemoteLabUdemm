@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import {
+  Alert,
   StyleSheet, View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -62,6 +63,7 @@ const Splash = () => {
     } catch (error) {
       setIsLoading(false)
       setHasError(true)
+      Alert.alert("error en el login")
     }
   }
 

@@ -29,6 +29,7 @@ const StudentsAppointmentsContainer = () => {
   const [appointments, setAppointments] = useState([])
   const routeinfo: any = useRoute();
   const student: Student = routeinfo.params?.student
+  const isTeacher: Student = routeinfo.params?.isTeacher
   const experiments = useSelector((state: any) => state?.config?.experiments);
 
   const dispatch = useDispatch();
@@ -80,7 +81,7 @@ const StudentsAppointmentsContainer = () => {
     return <FullScreenLoader color={BLACK} />
   }
 
-  if (appointments?.length === 0) { return (<NoAppointmentsContainer />); }
+  if (appointments?.length === 0) { return (<NoAppointmentsContainer isTeacher />); }
   return (
     <>
       <FlatList
