@@ -23,6 +23,12 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 15,
   },
+  noAppointmentText: {
+    alignSelf: 'center',
+    textAlign: 'center',
+    marginTop: 50,
+    paddingHorizontal: 20,
+  },
   icon: {
     height: 120,
     alignSelf: 'center'

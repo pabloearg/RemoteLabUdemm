@@ -54,7 +54,7 @@ const SelectDateContainer = ({
     try {
       setIsLoadingIn(true)
       const exactDay = moment().add('days', dayCounter).format('MM-DD-yyyy');
-      const response: any = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment?.uuid, '');
+      const response: any = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment?.uuid,);
       let appointmentsItems = response?.data?.appointmentByDayAndExperimentUserless?.items;
       if (appointmentsItems.length === 0 && dayCounter <= 14) {
         dayCounter += 1;
@@ -95,6 +95,7 @@ const SelectDateContainer = ({
   const renderItem = ({ item }: { item: DateAppoinment }) => (
     <DateRow
       appointment={item}
+      dayCounter={dayCounter}
     />
   );
 

@@ -18,10 +18,12 @@ import { DANGER } from '../../styles/colors';
 import ScreensNames from '../ScreensNames';
 import { getHourFromAppointment } from '../../utils/utils';
 
-const DateRow = ({ appointment }: {appointment: DateAppoinment}) => {
+const DateRow = ({ appointment,dayCounter }: {appointment: DateAppoinment, dayCounter:any}) => {
   const { navigate } = useNavigation();
   const goToConfirm = () => {
-    navigate(ScreensNames.CONFIRM_APPOINTMENT, { appointment });
+
+    const exactDay = moment().add('days', dayCounter).format('MM-DD-yyyy');
+    navigate(ScreensNames.CONFIRM_APPOINTMENT, { appointment ,exactDay});
   };
   return (
     <TouchableOpacity

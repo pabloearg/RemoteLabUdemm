@@ -1,4 +1,5 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
+import { find } from 'lodash';
 import React, { useState } from 'react';
 import {
   View, Text, Image, ScrollView
@@ -21,11 +22,13 @@ const ConfirmAppointmentContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation()
+  const [itsTaken, setItsTaken] = useState(false)
   const user: UserRL = useSelector((state: any) => state?.user?.data);
   const experiments = useSelector((state: any) => state?.config?.experiments);
   const params: any = useRoute()?.params;
 
   const appointment: AppointmentType = params?.appointment;
+  const exactDay: any = params?.exactDay;
   const experiment: Experiment = experiments[appointment?.experimentId];
 
   const submit = async () => {
@@ -37,6 +40,17 @@ const ConfirmAppointmentContainer = () => {
 
       delete updatedAppointment.updatedAt;
       delete updatedAppointment.createdAt;
+      try {
+        const itsFree = await checkIfItsFree()
+        if (!itsFree) {
+          setItsTaken(true)
+          setIsLoading(false)
+          return
+        }
+
+      } catch (error) {
+
+      }
       await AppointmentApi.setAppointmentIsTaken(updatedAppointment);
       const userAppointment = {
         email: user.email,
@@ -59,6 +73,24 @@ const ConfirmAppointmentContainer = () => {
       // navigation.navigate(ScreensNames.HOME)
     }
   };
+
+  const checkIfItsFree = async () => {
+    const response: any = await AppointmentApi.getAppointmentsByExperimentIdAndDay(exactDay, experiment?.uuid);
+    let appointmentsItems = response?.data?.appointmentByDayAndExperimentUserless?.items;
+    const exist = find(appointmentsItems, (item => appointment.uuid === item.uuid))
+    return exist !== undefined
+  }
+
+  if (itsTaken) {
+    return (<View style={styles.container}>
+      <TextHeadings
+        text="El turno que estas queriendo tomar ya no esta disponible"
+        color="black"
+        type="h2"
+        styleText={styles.noAppointmentText}
+      />
+    </View>)
+  }
 
   return (
     <View style={styles.container}>
