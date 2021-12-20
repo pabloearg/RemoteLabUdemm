@@ -2,7 +2,7 @@ import { useNavigation, useRoute } from '@react-navigation/core';
 import { find } from 'lodash';
 import React, { useState } from 'react';
 import {
-  View, Text, Image, ScrollView
+  View, Text, Image, ScrollView, Platform
 } from 'react-native';
 import { Card } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
@@ -64,7 +64,9 @@ const ConfirmAppointmentContainer = () => {
       }
       await AppointmentApi.createUserAppointment(userAppointment);
       dispatch(appointmentActions.getUserAppointments(user.email));
-      const added = await addAppointmentToCalendar(userAppointment, experiments[userAppointment.experimentId])
+      if (Platform.OS === "android") {
+        const added = await addAppointmentToCalendar(userAppointment, experiments[userAppointment.experimentId])
+      }
       navigation.navigate(ScreensNames.HOME)
 
     } catch (error) {
