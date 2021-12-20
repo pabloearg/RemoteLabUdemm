@@ -6,7 +6,7 @@
 # MOBILE INSTRUCTIONS
 # 💻 Installation
 
-Goalsetter requires:
+RemoteLab requires:
 - [Node.js](https://nodejs.org/) v14.17.4 to run.
 - [NPM](https://nodejs.org/) v6.14.14 to run.
 - Develop:
