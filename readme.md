@@ -9,10 +9,7 @@
 RemoteLab requires:
 - [Node.js](https://nodejs.org/) v14.17.4 to run.
 - [NPM](https://nodejs.org/) v6.14.14 to run.
-- Develop:
   - [Xcode 13](https://xcodereleases.com/) to run.
-- QA/Master
-  - [Xcode 12.5.1](https://xcodereleases.com/) to run.
 - Android Studio 11.0+.
   - sdk tool 30.
 
